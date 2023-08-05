@@ -19,10 +19,12 @@ return new class extends Migration
             $table->foreignId('category_id')
                 ->constrained('categories')
                 ->onDelete('cascade')->nullable();
-            $table->boolean('is_published')->default(0);
-            $table->boolean('is_draft')->default(0);
+            $table->boolean('is_published')->default(0)->nullable();
+            $table->boolean('is_draft')->default(0)->nullable();
             $table->date('published_at')->nullable();
-            $table->string('user_id')->nullable();
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('cascade')->nullable();
             $table->string('feature_image')->nullable();
             $table->timestamps();
         });

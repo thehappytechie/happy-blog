@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Post;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Livewire\Component;
@@ -15,7 +16,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $title, $slug, $contents, $is_published, $is_draft, $published_at, $user_id, $feature_image, $users;
+    public $title, $slug, $category_id, $contents, $is_published, $is_draft, $published_at, $user_id, $feature_image, $users;
 
     public function generateSlug()
     {
@@ -31,8 +32,9 @@ class Create extends Component
                 'contents' => ['nullable'],
                 'is_published' => ['nullable'],
                 'is_draft' => ['nullable'],
-                'published_at' => ['required','date'],
-                'user_id' => ['required'],
+                'published_at' => ['required', 'date'],
+                'user_id' => ['required', 'exists:users,id'],
+                'category_id' => ['required', 'exists:categories,id'],
                 'feature_image' => ['required'],
             ],
         );
@@ -44,12 +46,14 @@ class Create extends Component
         return redirect()->route('dashboard');
     }
 
-    public function mount() {
+    public function mount()
+    {
         $this->users = User::all();
     }
 
     public function render()
     {
-        return view('livewire.post.create');
+        $categories = Category::all();
+        return view('livewire.post.create', compact('categories'));
     }
 }

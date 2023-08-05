@@ -8,9 +8,8 @@
     <link
         href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.css"
-        rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/tom-select.css') }}" />
+
     @vite('resources/css/app.css')
 
     @livewireStyles
@@ -437,6 +436,7 @@
 
     @livewireScripts
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js">
     </script>
     <script
