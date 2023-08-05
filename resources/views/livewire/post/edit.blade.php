@@ -1,7 +1,14 @@
 <div class="py-8 px-8">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+
     <style>
         .filepond--credits {
             display: none;
+        }
+
+        /* override styles here */
+        .notie-container {
+            box-shadow: none;
         }
     </style>
     {{ $errors }}
@@ -72,8 +79,7 @@
             FilePond.registerPlugin(FilePondPluginImagePreview);
 
             FilePond.create($refs.input, {
-                @if($post->feature_image)
-                files: [{
+                @if ($post->feature_image) files: [{
                     source: '{{ Storage::url($post->feature_image) }}',
                     options: {
                         type: 'local'
@@ -91,8 +97,7 @@
                     revert: (filename, load) => {
                         @this.removeUpload('feature_image', filename, load)
                     },
-                  }
-                @endif
+                  } @endif
             });">
                 <label class="block text-sm font-medium text-gray-600 mb-2">Profile Photo</label>
                 <input wire:model="feature_image" accept="image/png, image/jpeg" type="file"
@@ -105,5 +110,16 @@
             class="rounded-md bg-white ml-5 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Save
             as draft</button>
     </form>
-
+    <script src="https://unpkg.com/notie"></script>
+    @if (session('success'))
+    <script>
+       notie.alert({
+  type: Number|String, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+  text: String,
+  stay: Boolean, // optional, default = false
+  time: Number, // optional, default = 3, minimum = 1,
+  position: String // optional, default = 'top', enum: ['top', 'bottom']
+})
+    </script>
+@endif
 </div>

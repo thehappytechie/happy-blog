@@ -23,6 +23,8 @@ Route::controller(PageController::class)->group(function () {
         ->name('home');
 });
 
+Route::get('dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
+
 Route::get('posts/create', \App\Http\Livewire\Post\Create::class)->name('posts.create');
 
 Route::get('posts/{post}/edit', \App\Http\Livewire\Post\Edit::class)->name('posts.edit');
