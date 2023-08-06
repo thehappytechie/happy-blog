@@ -71,9 +71,7 @@
                     tomselect.on('change', (value) => {
                         this.value = value;
                     });"
-                        class="peer input__field @error('category_id')
-input__field--error
-@enderror"
+                        class="peer input__field @error('category_id') input__field--error @enderror"
                         wire:model="category_id" wire:ignore x-ref="select" x-cloak>
                         @foreach ($categories as $category)
                             <option value="">Select category</option>
@@ -121,22 +119,30 @@ input__field--error
                         @this.removeUpload('feature_image', filename, load)
                     }
                 },
+                acceptedFileTypes: ['image/*'],
             });
             FilePond.create($refs.input);">
                 <label class="block text-sm font-medium text-gray-600 mb-2">Featured image</label>
-                <input wire:model="feature_image" accept="image/png, image/jpeg" type="file"
-                    x-ref="input">
+                <input wire:model="feature_image" type="file" x-ref="input">
             </div>
             @error('feature_image')
                 <x-validation-message> {{ $message }} </x-validation-message>
             @enderror
         </div>
-        <div class="pb-8">
+        <div class="mb-3">
+            <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                <input type="checkbox" id="toggle" wire:model="is_draft"
+                    class="checked:bg-blue-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-300 border-4 appearance-none cursor-pointer"><label
+                    for="toggle" class="block h-6 overflow-hidden bg-gray-300 rounded-full cursor-pointer"></label>
+            </div>
+            <span class="text-gray-400">Save as draft</span>
+        </div>
+        <hr>
+
+       <div class="pb-8">
             <button type="button" wire:click.prevent="save"
-                class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Publish</button>
-            <button type="button"
-                class="rounded-md bg-white ml-5 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Save
-                as draft</button>
+                class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                {{ $is_draft ? 'Publish as draft' : 'Save and Publish' }}</button>
         </div>
     </form>
 
