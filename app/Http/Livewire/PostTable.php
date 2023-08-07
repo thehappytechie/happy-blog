@@ -92,7 +92,15 @@ final class PostTable extends PowerGridComponent
             ->addColumn('category_id', fn (Post $model) => ucfirst($model->category->name))
             ->addColumn('user_id', fn (Post $model) => ucfirst($model->user->name))
             ->addColumn('created_at')
-            ->addColumn('created_at_formatted', fn (Post $model) => Carbon::parse($model->created_at)->toDayDateTimeString());
+            ->addColumn('created_at_formatted', fn (Post $model) => Carbon::parse($model->created_at)->toDayDateTimeString())
+            ->addColumn('is_draft')
+            ->addColumn('status', function (Post $model) {
+                if ($model->is_draft == 1) {
+                    return '<span class="inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Draft</span>';
+                } else {
+                    return '<span class="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Published</span>';
+                }
+            });;
     }
 
     /*
@@ -128,6 +136,13 @@ final class PostTable extends PowerGridComponent
                 ->hidden(),
 
             Column::make('Created at', 'created_at_formatted', 'created_at')
+                ->searchable()
+                ->sortable(),
+
+            Column::make('Status', 'is_draft')
+                ->hidden(),
+
+            Column::make('Status', 'status', 'is_draft')
                 ->searchable()
                 ->sortable(),
         ];
