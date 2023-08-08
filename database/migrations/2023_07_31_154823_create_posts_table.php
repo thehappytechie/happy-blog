@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('contents')->nullable();
-            $table->foreignId('category_id')
+            $table->foreignUlid('category_id')
                 ->constrained('categories')
                 ->onDelete('cascade')->nullable();
             $table->boolean('is_published')->default(0)->nullable();
             $table->boolean('is_draft')->default(0)->nullable();
             $table->date('published_at')->nullable();
-            $table->foreignId('user_id')
+            $table->foreignUlid('user_id')
                 ->constrained('users')
                 ->onDelete('cascade')->nullable();
             $table->string('feature_image')->nullable();

@@ -11,6 +11,6 @@
 }
 
 .active {
-    @apply bg-gray-50 text-indigo-600
+    @apply bg-gray-50 text-indigo-600 rounded shadow-sm
 }
 

@@ -28,11 +28,11 @@ class Create extends Component
     {
         $validatedData = $this->validate(
             [
-                'title' => ['required', 'string'],
-                'slug' => ['nullable'],
+                'title' => ['required', 'string', Rule::unique(Post::class)],
+                'slug' => ['string', 'nullable'],
                 'contents' => ['nullable'],
-                'is_published' => ['nullable'],
-                'is_draft' => ['nullable'],
+                'is_published' => ['boolean', 'nullable'],
+                'is_draft' => ['boolean', 'nullable'],
                 'published_at' => ['required', 'date'],
                 'user_id' => ['exists:users,id', 'nullable'],
                 'category_id' => ['exists:categories,id', 'nullable'],

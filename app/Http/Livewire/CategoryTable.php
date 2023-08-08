@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Builder;
@@ -11,7 +11,7 @@ use PowerComponents\LivewirePowerGrid\Filters\Filter;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridColumns};
 
-final class PostTable extends PowerGridComponent
+final class CategoryTable extends PowerGridComponent
 {
     use ActionButton;
 
@@ -49,11 +49,11 @@ final class PostTable extends PowerGridComponent
     /**
      * PowerGrid datasource.
      *
-     * @return Builder<\App\Models\Post>
+     * @return Builder<\App\Models\Category>
      */
     public function datasource(): Builder
     {
-        return Post::query();
+        return Category::query();
     }
 
     /*
@@ -88,19 +88,12 @@ final class PostTable extends PowerGridComponent
     public function addColumns(): PowerGridColumns
     {
         return PowerGrid::columns()
-            ->addColumn('title')
-            ->addColumn('category_id', fn (Post $model) => ucfirst($model->category->name))
-            ->addColumn('user_id', fn (Post $model) => ucfirst($model->user->name))
+            ->addColumn('id')
+            ->addColumn('name')
+            ->addColumn('slug')
+            ->addColumn('name_lower', fn (Category $model) => strtolower(e($model->name)))
             ->addColumn('created_at')
-            ->addColumn('created_at_formatted', fn (Post $model) => Carbon::parse($model->created_at)->toDayDateTimeString())
-            ->addColumn('is_draft')
-            ->addColumn('status', function (Post $model) {
-                if ($model->is_draft == 1) {
-                    return '<span class="inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Draft</span>';
-                } else {
-                    return '<span class="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Published</span>';
-                }
-            });;
+            ->addColumn('created_at_formatted', fn (Category $model) => Carbon::parse($model->created_at)->toDayDateTimeString());
     }
 
     /*
@@ -120,15 +113,15 @@ final class PostTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Title', 'title')
+            Column::make('ID', 'id')
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Category', 'category_id')
+            Column::make('Name', 'name')
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Author', 'user_id')
+            Column::make('Slug', 'slug')
                 ->searchable()
                 ->sortable(),
 
@@ -137,14 +130,6 @@ final class PostTable extends PowerGridComponent
 
             Column::make('Created at', 'created_at_formatted', 'created_at')
                 ->searchable()
-                ->sortable(),
-
-            Column::make('Status', 'is_draft')
-                ->hidden(),
-
-            Column::make('Status', 'status', 'is_draft')
-                ->searchable()
-                ->sortable(),
         ];
     }
 
@@ -156,7 +141,6 @@ final class PostTable extends PowerGridComponent
     public function filters(): array
     {
         return [
-            Filter::inputText('name'),
             Filter::datepicker('created_at_formatted', 'created_at'),
         ];
     }
@@ -170,25 +154,26 @@ final class PostTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid Post Action Buttons.
+     * PowerGrid Category Action Buttons.
      *
      * @return array<int, Button>
      */
 
-
+    /*
     public function actions(): array
     {
-        return [
-            Button::make('edit', '
-                        <svg class="-mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                        </svg> Edit')
-                ->class('inline-flex items-center gap-x-1.5 bg-transparent px-2.5 py-1.5 text-sm font-semibold text-orange-600 hover:text-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600')
-                ->route('post.edit', ['post' => 'id']),
+       return [
+           Button::make('edit', 'Edit')
+               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('category.edit', ['category' => 'id']),
 
+           Button::make('destroy', 'Delete')
+               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+               ->route('category.destroy', ['category' => 'id'])
+               ->method('delete')
         ];
     }
-
+    */
 
     /*
     |--------------------------------------------------------------------------
@@ -199,7 +184,7 @@ final class PostTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid Post Action Rules.
+     * PowerGrid Category Action Rules.
      *
      * @return array<int, RuleActions>
      */
@@ -211,7 +196,7 @@ final class PostTable extends PowerGridComponent
 
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($post) => $post->id === 1)
+                ->when(fn($category) => $category->id === 1)
                 ->hide(),
         ];
     }
