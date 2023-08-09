@@ -11,4 +11,6 @@ class Tag extends Model
     use HasFactory;
     use HasUlids;
 
+    protected $guarded = ['id'];
+
 }

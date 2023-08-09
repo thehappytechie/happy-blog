@@ -31,6 +31,10 @@ Route::get('posts/{post}/edit', \App\Http\Livewire\Post\Edit::class)->name('post
 
 Route::get('posts/index', \App\Http\Livewire\Post\Index::class)->name('post.index');
 
-Route::get('category/index', \App\Http\Livewire\Category\Index::class)->name('category.index');
+Route::get('users/index', \App\Http\Livewire\User\Index::class)->name('user.index');
 
+Route::get('tags/index', \App\Http\Livewire\Tag\Index::class)->name('tag.index');
+
+Route::get('category/index', \App\Http\Livewire\Category\Index::class)->name('category.index');
+Route::view('/powergrid', 'powergrid-demo');
 

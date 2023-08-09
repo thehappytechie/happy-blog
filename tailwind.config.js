@@ -12,6 +12,7 @@ module.exports = {
         './vendor/wire-elements/modal/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
     ],
     theme: {
         extend: {
