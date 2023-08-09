@@ -209,7 +209,7 @@ final class TagTable extends PowerGridComponent
         return [
             Button::add('bulk-delete')
                 ->caption(__('Bulk delete'))
-                ->class('text-xs cursor-pointer block bg-white-200 text-gray-700 border border-gray-300 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-600 dark:border-gray-500 dark:bg-gray-500 2xl:dark:placeholder-gray-300 dark:text-gray-200 dark:text-gray-300')
+                ->class('text-xs cursor-pointer block bg-red-100 text-red-600 border border-red-300 rounded py-1.5 px-1.5 leading-tight focus:outline-none focus:bg-red focus:border-red-600 dark:border-red-500 dark:bg-red-500 2xl:dark:placeholder-gray-300 dark:text-red-200 dark:text-red-300')
                 ->emit('bulkDelete',[]),
         ];
     }
@@ -234,4 +234,5 @@ final class TagTable extends PowerGridComponent
             'tagIds' => $this->checkboxValues,
         ]);
     }
+
 }
