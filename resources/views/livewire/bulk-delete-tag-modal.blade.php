@@ -23,13 +23,8 @@
                 <h3 class="text-lg font-semibold leading-6 text-gray-900" id="modal-title">Delete Tags
                 </h3>
                 <div class="mt-2">
-                    <p class="text-sm text-gray-500">
-                        @if($tagId)
-                        CategoryId: {{ $tagId }}
-                        @endif
-                        @if($tagIds)
-                        CategoryIdIds: @json($tagIds)
-                        @endif
+                    <p class="text-sm text-gray-500">Are you sure you want to delete? All selected items and associated data
+                        will be permanently removed. This action cannot be undone.</p>
                 </div>
             </div>
         </div>

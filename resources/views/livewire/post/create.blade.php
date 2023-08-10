@@ -1,4 +1,4 @@
-<div class="py-4 px-8">
+<div class="py-4 mt-2">
 
     <x-page-heading pageHeading="Create Post" />
 
@@ -11,14 +11,14 @@
     <form>
         <p class="text-xs text-gray-500"><span class="text-red-600 text-xs">*</span> indicates
             required field</p>
-        <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
+        <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-6">
             <div>
                 <label for="title"
                     class="block text-sm font-medium leading-6 text-gray-900">Title
                     <span class="text-pink-600 text-xs">*</span></label>
                 <div class="mt-2">
                     <input type="text" id="title" wire:model="title"
-                        wire:keyup.debounce.800ms="generateSlug"
+                        wire:keyup.debounce.200ms="generateSlug"
                         class="input__field @error('title') input__field--error @enderror">
                 </div>
                 @error('title')
@@ -139,7 +139,7 @@
         </div>
         <hr>
 
-       <div class="pb-8">
+       <div class="py-4">
             <button type="button" wire:click.prevent="save"
                 class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 {{ $is_draft ? 'Publish as draft' : 'Save and Publish' }}</button>

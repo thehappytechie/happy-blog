@@ -8,18 +8,13 @@ use LivewireUI\Modal\ModalComponent;
 
 class BulkDeleteCategoryModal extends ModalComponent
 {
-    public static function destroyOnClose(): bool
-    {
-        return true;
-    }
-
     public ?int $categoryId = null;
 
     public array $categoryIds = [];
 
     public static function modalMaxWidth(): string
     {
-        return 'xxl';
+        return 'md';
     }
 
     public function confirm()

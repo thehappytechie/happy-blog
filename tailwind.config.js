@@ -20,6 +20,9 @@ module.exports = {
                 transparent: 'transparent',
                 "pg-primary": colors.gray,
             },
+            fontFamily: {
+                sans: ['Nunito Sans', 'sans-serif']
+            },
         },
     },
     safelist: [

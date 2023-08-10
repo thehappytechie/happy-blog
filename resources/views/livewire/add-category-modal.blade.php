@@ -3,14 +3,14 @@
         <h2 class="text-2xl sm:text-2xl font-medium font-display text-gray-800 tracking-tight mb-2">Add Category
         </h2>
         <form class="border-t border-gray-100" method="POST">
-            <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4">
+            <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4 mb-2">
                 <div>
                     <label for="name"
                         class="block text-sm font-medium leading-6 text-gray-700">Name
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="name" wire:model="name"
-                            wire:keyup.debounce.800ms="generateSlug" class="input__field @error('name') input__field--error @enderror">
+                            wire:keyup.debounce.200ms="generateSlug" class="input__field @error('name') input__field--error @enderror">
                     </div>
                     @error('name')
                         <x-validation-message> {{ $message }} </x-validation-message>

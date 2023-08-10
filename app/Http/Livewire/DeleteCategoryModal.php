@@ -22,7 +22,7 @@ class DeleteCategoryModal extends ModalComponent
 
     public function delete()
     {
-        $this->payment->delete();
+        $this->category->delete();
         $this->emit('pg:eventRefresh-default');
         $this->closeModal();
     }
