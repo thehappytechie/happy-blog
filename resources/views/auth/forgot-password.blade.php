@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 
     @vite('resources/css/app.css')
 
@@ -25,15 +23,11 @@
             </div>
             <div class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
                 <p class="text-4xl text-center font-extrabold mb-2">
-                    Welcome.
+                    Forgot Password
                 </p>
-                <p class="text-gray-500 text-center"> Are you a new user? <a href="{{ route('register') }}"
-                        class="font-semibold underline text-blue-800 hover:text-blue-600">
-                        Create an account
-                    </a>
-                </p>
+                <p class="text-gray-500">Please enter your email and we’ll send you a recovery link to reset your password</p>
                 <form class="flex flex-col md:pt-8">
-                    <div class="flex flex-col">
+                    <div class="flex flex-col mb-8">
                         <div class="flex relative">
                             <span
                                 class=" inline-flex rounded-l-md items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -49,37 +43,6 @@
                                 placeholder="Email" />
                         </div>
                     </div>
-                    <div class="flex flex-col pt-4 mb-8">
-                        <div class="mb-1 text-right">
-                            <p class="text-sm text-blue-800 font-medium hover:text-blue-600"><a
-                                    href="{{ url('forgot-password') }}">Forgot password?</a></p>
-                        </div>
-                        <div class="flex relative ">
-                            <span
-                                class=" inline-flex rounded-l-md items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
-                                <svg width="15" height="15" fill="currentColor" viewBox="0 0 1792 1792"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M1376 768q40 0 68 28t28 68v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-320q0-185 131.5-316.5t316.5-131.5 316.5 131.5 131.5 316.5q0 26-19 45t-45 19h-64q-26 0-45-19t-19-45q0-106-75-181t-181-75-181 75-75 181v320h736z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <input type="password" id="design-login-password"
-                                class="rounded-r-md flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="Password" />
-                        </div>
-
-                        <div class="flex relative mt-4">
-                            <div class="flex h-6 items-center">
-                                <input id="comments" aria-describedby="comments-description" name="comments"
-                                    type="checkbox"
-                                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="ml-3 text-sm leading-6">
-                                <label for="comments" class="font-medium text-gray-500">Remember me</label>
-                            </div>
-                        </div>
-                    </div>
                     <button type="submit"
                         class="w-full rounded-md px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-black shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2">
                         <span class="w-full">
@@ -87,6 +50,14 @@
                         </span>
                     </button>
                 </form>
+                <div class="pt-8 pb-8 text-center">
+                    <p>
+                        Already have an account?
+                        <a href="{{ route('login') }}" class="font-semibold underline text-blue-800 hover:text-blue-600">
+                            Login
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="w-1/2 shadow-2xl">
