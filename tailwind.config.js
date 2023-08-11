@@ -21,7 +21,8 @@ module.exports = {
                 "pg-primary": colors.gray,
             },
             fontFamily: {
-                sans: ['Nunito Sans', 'sans-serif']
+                sans: ['Inter', 'sans-serif'],
+                serif: ['Prata', 'serif']
             },
         },
     },

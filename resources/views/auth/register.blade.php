@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
 
     @vite('resources/css/app.css')
 
@@ -24,8 +22,8 @@
                 </a>
             </div>
             <div class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
-                <p class="text-4xl text-center font-extrabold mb-2">
-                    Register
+                <p class="font-serif text-4xl text-center font-extrabold mb-2">
+                    Sign Up
                 </p>
                 <p class="text-gray-500 text-center"> Create an account or <a href="{{ route('login') }}"
                         class="font-semibold underline text-blue-800 hover:text-blue-600">
