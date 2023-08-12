@@ -15,15 +15,17 @@
 
     <div x-show="open" @click.outside="open = false"
         class="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-        <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1"
+        <a href="{{ route('user.update.profile') }}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1"
             id="user-menu-item-0">Your profile</a>
-        <a href="#" class="divide-y divide-gray-100 block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"
+        <a href="{{ route('user.update.password') }}" class="divide-y divide-gray-100 block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"
             tabindex="-1" id="user-menu-item-0">Your password</a>
         <div class="w-11/12 m-auto border-t border-gray-100"></div>
         <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1"
             id="user-menu-item-0">Settings</a>
         <div class="w-11/12 m-auto border-t border-gray-100"></div>
-        <a href="#" class="block px-3 py-1 text-sm leading-6 text-red-600" role="menuitem" tabindex="-1"
-            id="user-menu-item-1">Sign out</a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button class="block px-3 py-1 text-sm leading-6 text-red-600" type="submit">Logout</button>
+        </form>
     </div>
 </div>
