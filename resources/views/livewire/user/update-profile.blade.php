@@ -7,24 +7,24 @@
             you share.</p>
         <div class="md:w-6/12">
             <div class="mt-4">
-                <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Full name
+                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full name
                     <span class="text-pink-600 text-xs">*</span></label>
                 <div class="mt-2">
-                    <input type="text" id="title" wire:model="title" wire:keyup.debounce.200ms="generateSlug"
+                    <input type="text" id="name" wire:model="name"
                         class="input__field @error('title') input__field--error @enderror">
                 </div>
-                @error('title')
+                @error('name')
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>
             <div class="mt-4">
-                <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Email
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
                     <span class="text-pink-600 text-xs">*</span></label>
                 <div class="mt-2">
-                    <input type="text" id="title" wire:model="title" wire:keyup.debounce.200ms="generateSlug"
+                    <input type="email" id="email" wire:model="email"
                         class="input__field @error('title') input__field--error @enderror">
                 </div>
-                @error('title')
+                @error('email')
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>

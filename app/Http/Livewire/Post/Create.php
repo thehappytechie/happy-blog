@@ -15,7 +15,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $title, $slug, $category_id, $contents, $is_published, $published_at, $user_id, $feature_image, $users;
+    public $title, $slug, $category_id, $contents, $is_published, $published_at, $user_id, $feature_image, $users, $categories;
 
     public $is_draft = "";
 
@@ -53,11 +53,11 @@ class Create extends Component
     public function mount()
     {
         $this->users = User::all();
+        $this->categories = Category::all();
     }
 
     public function render()
     {
-        $categories = Category::all();
         return view('livewire.post.create', compact('categories'));
     }
 }

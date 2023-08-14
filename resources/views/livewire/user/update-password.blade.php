@@ -1,10 +1,11 @@
 <div class="py-4 mt-2">
 
     <x-page-heading pageHeading="Update Password" />
-
+{{ $user->id }}
     <form>
         <p class="mt-1 text-sm leading-6 text-gray-600">Manage your account password</p>
         <div class="rounded-md bg-blue-50 p-4 mt-4 md:w-9/12">
+            <input type="hidden" wire:model="user_id">
             <div class="flex">
                 <div class="flex-shrink-0">
                     <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -22,19 +23,19 @@
 
         <div class="md:w-6/12">
             <div class="mt-6">
-                <label for="password" class="block text-sm font-medium leading-6 text-gray-800">Current password</label>
+                <label for="current_password" class="block text-sm font-medium leading-6 text-gray-800">Current password</label>
                 <div class="mt-2">
-                    <input type="password" id="password" name="password" autocomplete="current-password"
-                        class="input__field @error('password') input__field--error @enderror" required>
+                    <input type="password" id="current_password" wire:model="current_password" autocomplete="current-password"
+                        class="input__field @error('current_password') input__field--error @enderror" required>
                 </div>
-                @error('password')
+                @error('current_password')
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>
             <div class="mt-4">
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-800">New password</label>
                 <div class="mt-2">
-                    <input type="password" id="password" name="password" autocomplete="current-password"
+                    <input type="password" id="password" wire:model="password" autocomplete="new-password"
                         class="input__field @error('password') input__field--error @enderror" required>
                 </div>
                 @error('password')
@@ -42,9 +43,9 @@
                 @enderror
             </div>
             <div class="mt-4">
-                <label for="password" class="block text-sm font-medium leading-6 text-gray-800">Confirm assword</label>
+                <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-800">Confirm assword</label>
                 <div class="mt-2">
-                    <input type="password" id="password" name="password" autocomplete="current-password"
+                    <input type="password" id="password_confirmation" wire:model="password_confirmation" autocomplete="current-password"
                         class="input__field @error('password') input__field--error @enderror" required>
                 </div>
                 @error('password')

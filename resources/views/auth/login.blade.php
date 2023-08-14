@@ -74,8 +74,8 @@
                 </form>
             </div>
         </div>
-        <div class="w-1/2 shadow-2xl">
-            <img class="hidden object-cover w-full h-screen md:block" src="{{ asset('images/cover.jpg') }}" />
+        <div class="w-1/2 shadow-xl">
+            <img class="hidden object-cover w-full h-screen md:block" src="{{ asset('images/hero.jpg') }}" />
         </div>
     </div>
 

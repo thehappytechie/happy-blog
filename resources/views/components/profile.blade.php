@@ -1,5 +1,5 @@
 <div class="relative" x-data="{ open: false }">
-    <button @click="open = ! open"> <span class="hidden lg:flex lg:items-center">
+    <button @click="open = ! open"> <span class="flex items-center lg:flex lg:items-center mt-1.5">
             <span class="sr-only">Open user menu</span>
             <img class="h-7 w-7 rounded-full bg-gray-50"
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -15,7 +15,7 @@
 
     <div x-show="open" @click.outside="open = false"
         class="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-        <a href="{{ route('user.update.profile') }}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1"
+        <a href="{{ route('user.update.profile', Auth::user()->id) }}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1"
             id="user-menu-item-0">Your profile</a>
         <a href="{{ route('user.update.password') }}" class="divide-y divide-gray-100 block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"
             tabindex="-1" id="user-menu-item-0">Your password</a>

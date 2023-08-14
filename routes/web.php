@@ -40,10 +40,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('user/update-password', \App\Http\Livewire\User\UpdatePassword::class)->name('user.update.password');
 
-    Route::get('user/update-profile', \App\Http\Livewire\User\UpdateProfile::class)->name('user.update.profile');
+    Route::get('user/{user}/update-profile', \App\Http\Livewire\User\UpdateProfile::class)->name('user.update.profile');
 
     Route::get('tags/index', \App\Http\Livewire\Tag\Index::class)->name('tag.index');
 
     Route::get('category/index', \App\Http\Livewire\Category\Index::class)->name('category.index');
-
 });

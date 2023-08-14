@@ -1,4 +1,4 @@
-<div class="py-4 px-8">
+<div class="py-4 mt-2">
     <x-page-heading pageHeading="Dashboard" />
 
 
