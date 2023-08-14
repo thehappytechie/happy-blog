@@ -3,9 +3,7 @@
 namespace App\Http\Livewire\Post;
 
 use App\Models\Post;
-use App\Models\User;
 use Livewire\Component;
-use App\Models\Category;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
@@ -30,20 +28,26 @@ class Edit extends Component
         $this->slug = $post->slug;
         $this->category_id = $post->category_id;
         $this->user_id = $post->user_id;
-        $this->feature_image = $post->feature_image;
+        $this->is_draft = $post->is_draft;
+        $this->published_at = $post->published_at;
     }
 
     public function save()
     {
         $validatedData = $this->validate(
             [
-                'title' => ['required', 'string'],
-                'slug' => ['nullable'],
+                'title' => ['required', Rule::unique(Post::class)->ignore($this->post)],
+                'slug' => ['string', 'nullable'],
                 'contents' => ['nullable'],
-                'is_published' => ['nullable'],
-                'is_draft' => ['nullable'],
-                'published_at' => ['nullable'],
-                'user_id' => ['string', 'nullable'],
+                'is_published' => ['boolean', 'nullable'],
+                'is_draft' => ['boolean', 'nullable'],
+                'published_at' => ['nullable', 'date'],
+                'user_id' => ['required', 'exists:users,id'],
+                'category_id' => ['required', 'exists:categories,id'],
+                'feature_image' => [
+                    File::image()
+                        ->types(['jpg', 'png', 'jpeg']), 'nullable',
+                ],
             ],
         );
         if ($this->feature_image instanceof \Livewire\TemporaryUploadedFile) {

@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Post;
 
 use App\Models\Post;
-use App\Models\User;
 use Livewire\Component;
-use App\Models\Category;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\File;
 
 class Create extends Component
@@ -52,12 +51,12 @@ class Create extends Component
 
     public function mount()
     {
-        $this->users = User::all();
-        $this->categories = Category::all();
+        $this->users = DB::table('users')->select('id', 'name')->get();
+        $this->categories = DB::table('categories')->select('id', 'name')->orderBy('name', 'asc')->get();
     }
 
     public function render()
     {
-        return view('livewire.post.create', compact('categories'));
+        return view('livewire.post.create');
     }
 }

@@ -14,7 +14,7 @@ class Post extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'published_at' => 'date',
     ];
 
     public function user()
