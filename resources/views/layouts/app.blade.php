@@ -18,7 +18,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body x-data="{ open: false }" x-cloak>
+<body x-data="{ open: false }" x-cloak class="bg-gray-50">
 
     <style>
         [x-cloak] {
@@ -108,7 +108,7 @@
                     <x-breadcrumb></x-breadcrumb>
 
                     <div
-                        class="bg-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative h-[640px] overflow-auto rounded-xl border border-gray-100 opacity-75 shadow-sm mt-5">
+                        class="bg-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  rounded-xl border border-gray-100 opacity-75 shadow-md mt-5">
 
                         {{ $slot }}
 
