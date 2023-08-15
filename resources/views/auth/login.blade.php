@@ -26,7 +26,7 @@
                 <p class="font-serif text-4xl text-center font-extrabold mb-2">
                     Welcome.
                 </p>
-                <p class="text-gray-500 text-center"> Are you a new user? <a href="{{ route('register') }}"
+                <p class="text-gray-500 text-center"> New user? <a href="{{ route('register') }}"
                         class="font-semibold underline text-blue-800 hover:text-blue-600">
                         Create an account
                     </a>

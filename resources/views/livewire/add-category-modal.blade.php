@@ -1,12 +1,12 @@
 <div>
     <div class="bg-white px-5 py-5">
-        <h2 class="text-2xl sm:text-2xl font-medium font-display text-gray-800 tracking-tight mb-2">Add Category
+        <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-700 tracking-tight mb-2">Add Category
         </h2>
         <form class="border-t border-gray-100" method="POST">
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4 mb-2">
                 <div>
                     <label for="name"
-                        class="block text-sm font-medium leading-6 text-gray-700">Name
+                        class="block text-sm font-medium leading-6 text-gray-600">Name
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="name" wire:model="name"
@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <label for="slug"
-                        class="block text-sm font-medium leading-6 text-gray-700">Slug</label>
+                        class="block text-sm font-medium leading-6 text-gray-600">Slug</label>
                     <div class="mt-2" wire:ignore>
                         <input type="text" id="slug" wire:model="slug" class="input__field"
                             disabled>

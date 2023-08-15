@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Category;
+use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use LivewireUI\Modal\ModalComponent;

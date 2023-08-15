@@ -37,7 +37,7 @@
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-800">Full name</label>
                         <div class="mt-2">
                             <input type="text" id="name" name="name"
-                                class="input__field @error('name') input__field--error @enderror" required>
+                                class="input__field @error('name') input__field--error @enderror" value="{{ old('name') }}" required>
                         </div>
                         @error('name')
                         <x-validation-message> {{ $message }} </x-validation-message>
@@ -47,7 +47,7 @@
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Email</label>
                         <div class="mt-2">
                             <input type="email" id="email" name="email"
-                                class="input__field @error('password') input__field--error @enderror" required>
+                                class="input__field @error('password') input__field--error @enderror" value="{{ old('email') }}" required>
                         </div>
                         @error('email')
                         <x-validation-message> {{ $message }} </x-validation-message>
@@ -76,7 +76,7 @@
                         <x-validation-message> {{ $message }} </x-validation-message>
                         @enderror
                     </div>
-                    <p class="mb-8 text-gray-600">By creating an account, you agree to our <a href="http://"
+                    <p class="text-sm mb-8 text-gray-500">By creating an account, you agree to our <a href="http://"
                             class="font-medium underline text-blue-800 hover:text-blue-600">Terms</a> and have read and
                         acknowledge the <a href="http://" class="font-medium underline text-blue-800 hover:text-blue-600"> Global Privacy
                             Statement</a>.</p>
