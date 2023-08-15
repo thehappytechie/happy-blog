@@ -120,6 +120,21 @@
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>
+            <div wire:ignore class="mt-4">
+                <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
+                <div class="mt-2" x-data="{ contents : @entangle('contents').defer }" x-init='
+                $nextTick(() => {
+                let editor = new SimpleMDE({
+                    element: $refs.editor,
+                    initialValue: contents
+                 });
+                 editor.codemirror.on("change", function(){
+                    contents = editor.value()
+                })
+            })'>
+                    <textarea x-ref="editor" wire:model="contents"></textarea>
+                </div>
+            </div>
             <div class="mb-3">
                 <div class="relative inline-block w-10 mr-2 align-middle select-none">
                     <input type="checkbox" id="toggle" wire:model="is_draft"
@@ -128,9 +143,6 @@
                 </div>
                 <span class="text-gray-400">Save as draft</span>
             </div>
-
-            <hr>
-
             <div class="py-4">
                 <button type="button" wire:click.prevent="save"
                     class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -149,4 +161,8 @@
 <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
 </script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+@endpush
+
+@push('simpleMDEJs')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
 @endpush

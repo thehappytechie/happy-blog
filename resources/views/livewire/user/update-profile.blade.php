@@ -61,7 +61,7 @@
                     <x-validation-message> {{ $message }} </x-validation-message>
                     @enderror
                 </div>
-                <div class="mt-4">
+                <div wire:ignore class="mt-4">
                     <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
                     <div class="mt-2" x-data="{ bio : @entangle('bio').defer }" x-init='
                 $nextTick(() => {

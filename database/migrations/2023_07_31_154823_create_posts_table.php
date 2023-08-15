@@ -15,7 +15,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->string('contents')->nullable();
+            $table->longText('contents')->nullable();
             $table->foreignUlid('category_id')
                 ->constrained('categories')
                 ->onDelete('cascade')->nullable();

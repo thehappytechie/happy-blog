@@ -53,10 +53,10 @@
 
         <x-desktop-sidebar></x-desktop-sidebar>
 
-        <div class="lg:pl-72">
-            <div class="sticky top-0 z-40 lg:mx-auto lg:max-w-7xl lg:px-8">
+        <div class="lg:pl-72 bg-gray-50">
+            <div class="sticky top-0 z-40 lg:mx-auto lg:max-w-7xl lg:px-8 bg-white border-b border-gray-200">
                 <div
-                    class="flex h-16 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none">
+                    class="flex h-16 items-center gap-x-4 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none">
                     <button type="button" @click="open = ! open" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
                         <span class="sr-only">Open sidebar</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -103,12 +103,12 @@
             </div>
 
             <main class="py-5">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
 
                     <x-breadcrumb></x-breadcrumb>
 
                     <div
-                        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative h-[640px] overflow-auto rounded-xl border border-solid border-gray-300 opacity-75 shadow-sm mt-5">
+                        class="bg-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative h-[640px] overflow-auto rounded-xl border border-gray-100 opacity-75 shadow-sm mt-5">
 
                         {{ $slot }}
 
