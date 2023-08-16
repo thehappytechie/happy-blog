@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,11 @@ class Post extends Model
     protected $casts = [
         'published_at' => 'date',
     ];
+
+    public function excerpt()
+    {
+        return Str::words($this->contents, 50);
+    }
 
     public function user()
     {

@@ -17,22 +17,25 @@
             <div>
                 <div class="flex items-center gap-x-4 text-xs">
                     <span
-                        class="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-700/10">Published:
-                        {{ $post->published_at->toFormattedDateString() }}</span>
+                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
+                        <svg class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6" aria-hidden="true">
+                            <circle cx="3" cy="3" r="3" />
+                        </svg>
+                        <a href="http://"> {{ $post->published_at->toFormattedDateString() }}</a>
+                    </span>
                     <span
-                        class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
-                        <a href="http://"> Category: {{ ucfirst($post->category->name) }}</a>
+                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
+                        <svg class="h-1.5 w-1.5 fill-yellow-500" viewBox="0 0 6 6" aria-hidden="true">
+                            <circle cx="3" cy="3" r="3" />
+                        </svg>
+                        <a href="http://"> {{ ucfirst($post->category->name) }}</a>
                     </span>
                 </div>
                 <div class="group relative max-w-xl">
                     <h3 class="mt-3 text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         {{ ucfirst($post->title) }}
                     </h3>
-                    <p class="mt-5 text-sm leading-6 text-gray-600">
-                        @markdown
-                        {{ $post->contents }}
-                        @endmarkdown
-                    </p>
+                    <p class="mt-5 text-sm leading-6 text-gray-600"> {!! $post->excerpt() !!} </p>
                 </div>
                 <div class="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div class="relative flex items-center gap-x-4">
@@ -45,7 +48,7 @@
                                     {{ ucfirst($post->user->name) }}
                                 </a>
                             </p>
-                            <p class="text-gray-600">Co-Founder / CTO</p>
+                            <p class="text-gray-600"> /{{ $post->user->username }} </p>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,7 @@
 <div>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <div class="py-4 mt-2">
 
         <x-page-heading pageHeading="Create Post" />
@@ -120,22 +123,35 @@
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>
-            <div wire:ignore class="mt-4">
-                <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
-                <div class="mt-2" x-data="{ contents : @entangle('contents').defer }" x-init='
-                $nextTick(() => {
-                let editor = new SimpleMDE({
-                    element: $refs.editor,
-                    initialValue: contents
-                 });
-                 editor.codemirror.on("change", function(){
-                    contents = editor.value()
-                })
-            })'>
-                    <textarea x-ref="editor" wire:model="contents"></textarea>
+            <div class="mt-8" wire:ignore>
+                <div x-data x-ref="quillEditor" x-init="
+                      quill = new Quill($refs.quillEditor, {theme: 'snow',
+                      modules: {
+                        toolbar: {
+                            container: [
+                                [{ 'size': ['small', false, 'large', 'huge'] }],
+                                ['bold', 'italic', 'underline'],
+                                ['blockquote', 'code-block'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                                [{ 'align': [] }],
+                                ['link', 'image','video'],
+                                ]
+                        }
+                    }
+                    });
+                         quill.on('text-change', function () {
+                              $dispatch('input', quill.root.innerHTML);
+                          });" wire:model.debounce.2000ms="contents">
+
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mt-1">
+                @error('contents')
+                <x-validation-message> {{ $message }} </x-validation-message>
+                @enderror
+            </div>
+            <div class="my-8">
                 <div class="relative inline-block w-10 mr-2 align-middle select-none">
                     <input type="checkbox" id="toggle" wire:model="is_draft"
                         class="checked:bg-blue-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-300 border-4 appearance-none cursor-pointer"><label
@@ -163,6 +179,6 @@
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 @endpush
 
-@push('simpleMDEJs')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
+@push('quillJs')
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 @endpush

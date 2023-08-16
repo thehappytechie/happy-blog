@@ -1,6 +1,5 @@
 <div>
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
     <div class="py-4 mt-2">
 
         <x-page-heading pageHeading="Profile" />
@@ -62,53 +61,18 @@
                     <x-validation-message> {{ $message }} </x-validation-message>
                     @enderror
                 </div>
-                {{-- <div wire:ignore class="mt-4">
-                    <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
-                    <div class="mt-2" x-data="{ bio : @entangle('bio').defer }" x-init='
-                $nextTick(() => {
-                    let editor = new SimpleMDE({
-                        element: $refs.editor,
-                        initialValue: bio
-                     });
-                     editor.codemirror.on("change", function(){
-                        bio = editor.value()
-                    })
-                })'>
-                        <textarea x-ref="editor" wire:model="bio"></textarea>
+                <div class="mt-4">
+                    <div>
+                        <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Add your
+                            bio</label>
+                        <div class="mt-2">
+                            <textarea rows="4" wire:model="bio" id="bio"
+                                class="input__field"></textarea>
+                        </div>
                     </div>
-                </div> --}}
-            </div>
-            <div class="mt-1" wire:ignore>
-                <div
-                    x-data
-                    x-ref="quillEditor"
-                    x-init="
-                      quill = new Quill($refs.quillEditor, {theme: 'snow',
-                      modules: {
-                        toolbar: {
-                            container: [
-                                ['bold', 'italic', 'underline', 'strike'],
-                                ['blockquote', 'code-block'],
-                                [{ 'header': 1 }, { 'header': 2 }],
-                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                                [{ 'size': ['small', false, 'large', 'huge'] }],
-                                [{ 'align': [] }],
-                                ['link', 'image'],
-                                ]
-                        }
-                    }
-
-                    });
-                         quill.on('text-change', function () {
-                              $dispatch('input', quill.root.innerHTML);
-                          });
-                        "
-                       wire:model.debounce.2000ms="bio"
-                      >
-                      {!! $bio !!}
                 </div>
-              </div>
+            </div>
+
             <div class="py-4">
                 <button type="button" wire:click.prevent="save"
                     class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -121,9 +85,3 @@
     </div>
 
 </div>
-
-
-
-@push('simpleMDEJs')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
-@endpush

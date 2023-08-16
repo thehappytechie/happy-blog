@@ -29,15 +29,15 @@ class Create extends Component
             [
                 'title' => ['required', 'string', Rule::unique(Post::class)],
                 'slug' => ['string', 'nullable'],
-                'contents' => ['nullable'],
+                'contents' => ['required', 'string'],
                 'is_published' => ['boolean', 'nullable'],
                 'is_draft' => ['boolean', 'nullable'],
                 'published_at' => ['required', 'date'],
                 'user_id' => ['exists:users,id', 'nullable'],
                 'category_id' => ['exists:categories,id', 'nullable'],
-                'feature_image' => [
+                'feature_image' => ['required',
                     File::image()
-                        ->types(['jpg', 'png', 'jpeg']), 'nullable',
+                        ->types(['jpg', 'png', 'jpeg']),
                 ],
             ],
         );

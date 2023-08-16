@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('title')->nullable();
             $table->string('profile_image')->nullable();
-            $table->boolean('terms')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

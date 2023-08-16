@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class UpdateProfile extends Component
 {
-    public $user, $name, $email, $bio, $username;
+    public $user, $name, $email, $bio, $username, $title, $website;
 
     public function mount(User $user)
     {
@@ -17,6 +17,8 @@ class UpdateProfile extends Component
         $this->email = $user->email;
         $this->bio = $user->bio;
         $this->username = $user->username;
+        $this->title = $user->title;
+        $this->website = $user->website;
     }
 
     public function save()
@@ -25,7 +27,10 @@ class UpdateProfile extends Component
             [
                 'name' => ['required', 'string'],
                 'email' => ['required', 'string', Rule::unique(User::class)->ignore($this->user)],
-                'bio' => ['required'],
+                'bio' => ['string', 'nullable'],
+                'username' => ['required', 'string', Rule::unique(User::class)->ignore($this->user)],
+                'title' => ['string', 'nullable'],
+                'website' => ['required', 'url:http,https', 'nullable'],
             ],
         );
         $this->user->update($validatedData);

@@ -129,7 +129,7 @@
 
     @stack('powergridJs')
 
-    @stack('simpleMDEJs')
+    @stack('quillJs')
 
     <script src="//unpkg.com/alpinejs" defer></script>
 
