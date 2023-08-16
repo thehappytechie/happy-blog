@@ -205,7 +205,7 @@
                     });
                          quill.on('text-change', function () {
                               $dispatch('input', quill.root.innerHTML);
-                          });" wire:model.debounce.2000ms="contents">
+                          });" wire:model="contents">
                     {!! $post->contents !!}
                 </div>
             </div>

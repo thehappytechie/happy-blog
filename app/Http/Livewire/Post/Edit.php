@@ -29,7 +29,6 @@ class Edit extends Component
         $this->category_id = $post->category_id;
         $this->user_id = $post->user_id;
         $this->is_draft = $post->is_draft;
-        $this->contents = $post->contents;
         $this->published_at = $post->published_at;
     }
 
