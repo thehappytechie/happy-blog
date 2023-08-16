@@ -14,7 +14,7 @@ class Edit extends Component
 {
     use WithFileUploads;
 
-    public $post, $category_id, $title, $slug, $contents, $is_published, $is_draft, $published_at, $user_id, $feature_image;
+    public $post, $category_id, $title, $slug, $contents, $is_archived, $is_draft, $published_at, $user_id, $feature_image;
 
     public function generateSlug()
     {
@@ -29,6 +29,7 @@ class Edit extends Component
         $this->category_id = $post->category_id;
         $this->user_id = $post->user_id;
         $this->is_draft = $post->is_draft;
+        $this->contents = $post->contents;
         $this->published_at = $post->published_at;
     }
 
@@ -37,11 +38,10 @@ class Edit extends Component
         $validatedData = $this->validate(
             [
                 'title' => ['required', Rule::unique(Post::class)->ignore($this->post)],
-                'slug' => ['string', 'nullable'],
-                'contents' => ['nullable'],
-                'is_published' => ['boolean', 'nullable'],
+                'slug' => ['required', 'string'],
+                'contents' => ['required', 'string'],
                 'is_draft' => ['boolean', 'nullable'],
-                'published_at' => ['nullable', 'date'],
+                'published_at' => ['required', 'date'],
                 'user_id' => ['required', 'exists:users,id'],
                 'category_id' => ['required', 'exists:categories,id'],
                 'feature_image' => [
@@ -54,6 +54,26 @@ class Edit extends Component
             $validatedData['feature_image'] = $this->feature_image->store('photos', 'public');
         }
         $this->post->update($validatedData);
+        return redirect()->route('dashboard');
+    }
+
+    public function draft()
+    {
+        $this->post->is_draft = 0;
+        $this->post->save();
+        return redirect()->route('dashboard');
+    }
+
+    public function archive()
+    {
+        if ($this->post->is_archived == 0) {
+            $this->post->is_archived = 1;
+            $this->post->save();
+        } else {
+            $this->post->is_archived = 0;
+            $this->post->save();
+        }
+
         return redirect()->route('dashboard');
     }
 

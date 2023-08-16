@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignUlid('category_id')
                 ->constrained('categories')
                 ->onDelete('cascade')->nullable();
-            $table->boolean('is_published')->default(0)->nullable();
+            $table->boolean('is_archived')->default(0)->nullable();
             $table->boolean('is_draft')->default(0)->nullable();
             $table->date('published_at')->nullable();
             $table->foreignUlid('user_id')

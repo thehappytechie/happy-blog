@@ -14,7 +14,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $title, $slug, $category_id, $contents, $is_published, $published_at, $user_id, $feature_image;
+    public $title, $slug, $category_id, $contents, $published_at, $user_id, $feature_image;
 
     public $is_draft = 0;
 
@@ -30,7 +30,6 @@ class Create extends Component
                 'title' => ['required', 'string', Rule::unique(Post::class)],
                 'slug' => ['string', 'nullable'],
                 'contents' => ['required', 'string'],
-                'is_published' => ['boolean', 'nullable'],
                 'is_draft' => ['boolean', 'nullable'],
                 'published_at' => ['required', 'date'],
                 'user_id' => ['exists:users,id', 'nullable'],

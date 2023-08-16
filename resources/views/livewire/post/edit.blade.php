@@ -1,4 +1,7 @@
 <div>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <div class="py-4 mt-2">
 
         <button type="button"
@@ -17,6 +20,45 @@
                 display: none;
             }
         </style>
+
+        @if ($post->is_archived == 1)
+        <div class="rounded-md bg-yellow-50 p-4 mt-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-yellow-800">This post is archived. Archived posts are hidden but
+                        not deleted.</h3>
+                </div>
+            </div>
+        </div>
+        @elseif ($post->is_draft == 1)
+        <div class="rounded-md bg-orange-100 p-4 mt-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3 flex-1 md:flex md:justify-between">
+                    <p class="text-sm text-orange-700">This post is a draft. Publish this post by clicking the ‘Publish’
+                        button, the post will be published immediately.</p>
+                    <p class="mt-3 text-sm md:ml-6 md:mt-0">
+                        <button type="button" wire:click.prevent="draft"
+                            class="whitespace-nowrap font-semibold text-orange-700 hover:text-orange-600">
+                            Publish</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        @endif
 
         <form>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-6">
@@ -140,8 +182,31 @@
                       },
                     @endif
                 });" FilePond.create($refs.input);>
-                    <label class="block text-sm font-medium text-gray-600 mb-2">Profile Photo</label>
+                    <label class="block text-sm font-medium text-gray-600 mb-2">Featured image</label>
                     <input wire:model="feature_image" accept="image/png, image/jpeg" type="file" x-ref="input">
+                </div>
+            </div>
+            <div class="mt-8" wire:ignore>
+                <div x-data x-ref="quillEditor" x-init="
+                      quill = new Quill($refs.quillEditor, {theme: 'snow',
+                      modules: {
+                        toolbar: {
+                            container: [
+                                [{ 'size': ['small', false, 'large', 'huge'] }],
+                                ['bold', 'italic', 'underline'],
+                                ['blockquote', 'code-block'],
+                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                                [{ 'align': [] }],
+                                ['link', 'image','video'],
+                                ]
+                        }
+                    }
+                    });
+                         quill.on('text-change', function () {
+                              $dispatch('input', quill.root.innerHTML);
+                          });" wire:model.debounce.2000ms="contents">
+                    {!! $post->contents !!}
                 </div>
             </div>
 
@@ -149,6 +214,12 @@
                 <button type="button" wire:click.prevent="save"
                     class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save
                     changes</button>
+                @if ($post->is_draft != 1)
+                <button type="button" wire:click.prevent="archive"
+                    class="rounded-md bg-white mt-5 ml-4 px-3.5 py-2.5 text-sm font-semibold text-gray-600 border border-gray-600 shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    {{ $post->is_archived == 0 ? 'Archive post' : 'Unarchive post' }}
+                </button>
+                @endif
             </div>
         </form>
 
@@ -162,4 +233,8 @@
 <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
 </script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+@endpush
+
+@push('quillJs')
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 @endpush
