@@ -1,9 +1,11 @@
 <div>
     <div class="py-4 mt-2">
         <div class="grid grid-cols-2 gap-4">
+
             <div class="text-left">
                 <x-page-heading pageHeading="Tags" />
             </div>
+
             <div class="mt-4 text-right">
                 <button type="button" wire:click="$emit('openModal', 'add-tag-modal')"
                     class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

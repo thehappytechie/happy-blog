@@ -1,7 +1,7 @@
 <div class="py-4 mt-2">
 
     <x-page-heading pageHeading="Update Password" />
-{{ $user->id }}
+
     <form>
         <p class="mt-1 text-sm leading-6 text-gray-600">Manage your account password</p>
         <div class="rounded-md bg-orange-100 p-4 mt-4 md:w-9/12">

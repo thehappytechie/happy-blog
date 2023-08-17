@@ -17,7 +17,7 @@
                 required field</p>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-6">
                 <div>
-                    <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title
+                    <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="title" wire:model="title" wire:keyup.debounce.200ms="generateSlug"
@@ -28,7 +28,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="slug" class="block text-sm font-medium leading-6 text-gray-900">Slug</label>
+                    <label for="slug" class="block text-sm font-medium leading-6 text-gray-800">Slug</label>
                     <div class="mt-2" wire:ignore>
                         <input type="text" id="slug" wire:model="slug" class="input__field" disabled>
                     </div>
@@ -36,7 +36,7 @@
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
                 <div>
-                    <label for="select-author" class="block text-sm font-medium leading-6 text-gray-900">Author
+                    <label for="select-author" class="block text-sm font-medium leading-6 text-gray-800">Author
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <select x-data x-init="const tomselect = new TomSelect($refs.select, {
@@ -58,7 +58,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="select-category" class="block text-sm font-medium leading-6 text-gray-900">Category
+                    <label for="select-category" class="block text-sm font-medium leading-6 text-gray-800">Category
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <select x-data x-init="const tomselect = new TomSelect($refs.select, {
@@ -83,7 +83,7 @@
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
                 <div>
-                    <label for="published_at" class="block text-sm font-medium leading-6 text-gray-900">Published date
+                    <label for="published_at" class="block text-sm font-medium leading-6 text-gray-800">Published date
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="date" id="published_at" wire:model="published_at"
@@ -94,57 +94,20 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Tags</label>
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Tags</label>
                     <div class="mt-2">
                         <input type="text" name="email" id="email"
-                            class="outline-none block w-full rounded-md border-0 px-3 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="outline-none block w-full rounded-md border-0 px-3 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
             </div>
             <div class="overflow-auto mt-8">
-                <div wire:ignore x-data x-init="FilePond.registerPlugin(FilePondPluginFileValidateType);
-                FilePond.registerPlugin(FilePondPluginImagePreview);
-                FilePond.setOptions({
-                    server: {
-                        process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                            @this.upload('feature_image', file, load, error, progress)
-                        },
-                        revert: (filename, load) => {
-                            @this.removeUpload('feature_image', filename, load)
-                        }
-                    },
-                    acceptedFileTypes: ['image/*'],
-                });
-                FilePond.create($refs.input);">
-                    <label class="block text-sm font-medium text-gray-600 mb-2">Featured image</label>
-                    <input wire:model="feature_image" type="file" x-ref="input">
-                </div>
-                @error('feature_image')
-                <x-validation-message> {{ $message }} </x-validation-message>
-                @enderror
+                <x-filepond.create-upload>
+                    </x-create-filepond-upload>
+                    @error('feature_image') <x-validation-message> {{ $message }} </x-validation-message> @enderror
             </div>
             <div class="mt-8" wire:ignore>
-                <div x-data x-ref="quillEditor" x-init="
-                      quill = new Quill($refs.quillEditor, {theme: 'snow',
-                      modules: {
-                        toolbar: {
-                            container: [
-                                [{ 'size': ['small', false, 'large', 'huge'] }],
-                                ['bold', 'italic', 'underline'],
-                                ['blockquote', 'code-block'],
-                                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                                [{ 'align': [] }],
-                                ['link', 'image','video'],
-                                ]
-                        }
-                    }
-                    });
-                         quill.on('text-change', function () {
-                              $dispatch('input', quill.root.innerHTML);
-                          });" wire:model.debounce.2000ms="contents">
-
-                </div>
+                <x-quill.text-editor> </x-quill.text-editor>
             </div>
             <div class="mt-1">
                 @error('contents')

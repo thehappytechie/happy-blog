@@ -1,1 +1,1 @@
-<h2 class="text-3xl font-bold py-2">{{ $pageHeading ?? '' }}</h2>
+<h2 class="text-3xl font-semibold py-2 text-gray-800">{{ $pageHeading ?? '' }}</h2>

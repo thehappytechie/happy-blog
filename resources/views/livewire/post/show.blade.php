@@ -8,23 +8,24 @@
             </svg>
             <a href="{{ route('post.index') }}">Back to all posts</a>
         </button>
+        
         <article class="relative isolate flex flex-col gap-8 lg:flex-row mt-6">
             <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                 <img src="{{ url('storage/'.$post->feature_image.'') }}" alt=""
                     class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover">
-                <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+                <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-800/10"></div>
             </div>
             <div>
                 <div class="flex items-center gap-x-4 text-xs">
                     <span
-                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
+                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-800 ring-1 ring-inset ring-gray-200">
                         <svg class="h-1.5 w-1.5 fill-red-500" viewBox="0 0 6 6" aria-hidden="true">
                             <circle cx="3" cy="3" r="3" />
                         </svg>
                         <a href="http://"> {{ $post->published_at->toFormattedDateString() }}</a>
                     </span>
                     <span
-                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200">
+                        class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-800 ring-1 ring-inset ring-gray-200">
                         <svg class="h-1.5 w-1.5 fill-yellow-500" viewBox="0 0 6 6" aria-hidden="true">
                             <circle cx="3" cy="3" r="3" />
                         </svg>
@@ -32,17 +33,17 @@
                     </span>
                 </div>
                 <div class="group relative max-w-xl">
-                    <h3 class="mt-3 text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <h3 class="mt-3 text-2xl font-semibold leading-6 text-gray-800 group-hover:text-gray-600">
                         {{ ucfirst($post->title) }}
                     </h3>
                     <p class="mt-5 text-sm leading-6 text-gray-600"> {!! $post->excerpt() !!} </p>
                 </div>
-                <div class="mt-6 flex border-t border-gray-900/5 pt-6">
+                <div class="mt-6 flex border-t border-gray-800/5 pt-6">
                     <div class="relative flex items-center gap-x-4">
                         <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                             alt="" class="h-10 w-10 rounded-full bg-gray-50">
                         <div class="text-sm leading-6">
-                            <p class="font-semibold text-gray-900">
+                            <p class="font-semibold text-gray-800">
                                 <a href="#">
                                     <span class="absolute inset-0"></span>
                                     {{ ucfirst($post->user->name) }}
@@ -57,7 +58,7 @@
 
         <div class="w-10/12 py-12">
             <div class="py-4">
-                <h1 class="text-lg font-semibold leading-6 text-gray-900">Comments</h1>
+                <h1 class="text-lg font-semibold leading-6 text-gray-800">Comments</h1>
                 <p class="mt-2 text-sm text-gray-700">A list of all the users opinions and views on the blog.</p>
             </div>
             <div class="relative">
@@ -112,7 +113,7 @@
                         alt="">
                     <div class="flex-auto">
                         <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-900">Leslie Alexander</p>
+                            <p class="text-sm font-semibold leading-6 text-gray-800">Leslie Alexander</p>
                             <p class="flex-none text-xs text-gray-600">
                                 <time datetime="2023-03-04T15:54Z">1d ago</time>
                             </p>
@@ -130,7 +131,7 @@
                         alt="">
                     <div class="flex-auto">
                         <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-900">Michael Foster</p>
+                            <p class="text-sm font-semibold leading-6 text-gray-800">Michael Foster</p>
                             <p class="flex-none text-xs text-gray-600">
                                 <time datetime="2023-03-03T14:02Z">2d ago</time>
                             </p>
@@ -150,7 +151,7 @@
                         alt="">
                     <div class="flex-auto">
                         <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-900">Dries Vincent</p>
+                            <p class="text-sm font-semibold leading-6 text-gray-800">Dries Vincent</p>
                             <p class="flex-none text-xs text-gray-600">
                                 <time datetime="2023-03-03T13:23Z">2d ago</time>
                             </p>
@@ -171,7 +172,7 @@
                         alt="">
                     <div class="flex-auto">
                         <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-900">Lindsay Walton</p>
+                            <p class="text-sm font-semibold leading-6 text-gray-800">Lindsay Walton</p>
                             <p class="flex-none text-xs text-gray-600">
                                 <time datetime="2023-03-02T21:13Z">3d ago</time>
                             </p>

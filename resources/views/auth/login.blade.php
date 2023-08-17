@@ -60,7 +60,6 @@
                             <label for="remember" class="ml-2 block text-sm text-gray-600">Remember
                                 me</label>
                         </div>
-
                         <div class="text-sm">
                             <a href="{{ url('forgot-password') }}"
                                 class="font-medium underline text-blue-800 hover:text-blue-600">Forgot

@@ -10,7 +10,7 @@
                 you share.</p>
             <div class="md:w-6/12">
                 <div class="mt-4">
-                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full name
+                    <label for="name" class="block text-sm font-medium leading-6 text-gray-800">Full name
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="name" wire:model="name"
@@ -21,7 +21,7 @@
                     @enderror
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Email
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="email" id="email" wire:model="email"
@@ -32,7 +32,7 @@
                     @enderror
                 </div>
                 <div class="mt-4">
-                    <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                    <label for="username" class="block text-sm font-medium leading-6 text-gray-800">Username</label>
                     <div class="mt-2">
                         <input type="text" id="username" wire:model="username"
                             class="input__field @error('username') input__field--error @enderror">
@@ -42,7 +42,7 @@
                     @enderror
                 </div>
                 <div class="mt-4">
-                    <label for="website" class="block text-sm font-medium leading-6 text-gray-900">Website</label>
+                    <label for="website" class="block text-sm font-medium leading-6 text-gray-800">Website</label>
                     <div class="mt-2">
                         <input type="url" id="website" wire:model="website"
                             class="input__field @error('website') input__field--error @enderror">
@@ -52,7 +52,7 @@
                     @enderror
                 </div>
                 <div class="mt-4">
-                    <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+                    <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title</label>
                     <div class="mt-2">
                         <input type="text" id="title" wire:model="title"
                             class="input__field @error('title') input__field--error @enderror">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="mt-4">
                     <div>
-                        <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Add your
+                        <label for="bio" class="block text-sm font-medium leading-6 text-gray-800">Add your
                             bio</label>
                         <div class="mt-2">
                             <textarea rows="4" wire:model="bio" id="bio"
