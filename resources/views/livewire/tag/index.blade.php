@@ -27,6 +27,10 @@
             window.addEventListener('showAlert', event => {
                 alert(event.detail.message);
             })
+
+            window.addEventListener('bulkDeleteCompleted', event => {
+                 alert('Items deleted successfully!');
+            });
         </script>
 
     </div>

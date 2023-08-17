@@ -19,18 +19,17 @@ class BulkDeleteTagModal extends ModalComponent
 
     public function confirm()
     {
-        if ($this->tagId) {
-            Tag::query()->find($this->tagId)->delete();
-        }
+        $ids = $this->tagId ? [$this->tagId] : $this->tagId;
 
-        if ($this->tagIds) {
-            Tag::query()->whereIn('id', $this->tagIds)->delete();
+        if ($ids) {
+            Tag::query()->whereIn('id', $ids)->delete();
         }
 
         $this->closeModalWithEvents([
             'pg:eventRefresh-default',
         ]);
     }
+
 
     public function render()
     {

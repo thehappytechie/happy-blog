@@ -3,11 +3,12 @@
 namespace App\Http\Livewire\Post;
 
 use App\Models\Post;
+use App\Models\User;
 use Livewire\Component;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\File;
 
 class Edit extends Component
@@ -59,28 +60,23 @@ class Edit extends Component
 
     public function draft()
     {
-        $this->post->is_draft = 0;
-        $this->post->save();
+        $this->post->update(['is_draft' => 0]);
         return redirect()->route('dashboard');
     }
 
     public function archive()
     {
-        if ($this->post->is_archived == 0) {
-            $this->post->is_archived = 1;
-            $this->post->save();
-        } else {
-            $this->post->is_archived = 0;
-            $this->post->save();
-        }
+        $this->post->update([
+            'is_archived' => !$this->post->is_archived
+        ]);
 
         return redirect()->route('dashboard');
     }
 
     public function render()
     {
-        $users = DB::table('users')->select('id', 'name')->get();
-        $categories = DB::table('categories')->select('id', 'name')->orderBy('name', 'asc')->get();
+        $users = User::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->orderBy('name', 'asc')->get();
         return view('livewire.post.edit', compact('users', 'categories'));
     }
 }

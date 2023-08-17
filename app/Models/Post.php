@@ -14,10 +14,6 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'published_at' => 'date',
-    ];
-
     public function excerpt()
     {
         return Str::words($this->contents, 50);

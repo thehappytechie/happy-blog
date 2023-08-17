@@ -35,51 +35,19 @@
                 </div>
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
-                <div>
-                    <label for="select-author" class="block text-sm font-medium leading-6 text-gray-800">Author
-                        <span class="text-pink-600 text-xs">*</span></label>
-                    <div class="mt-2">
-                        <select x-data x-init="const tomselect = new TomSelect($refs.select, {
-                            plugins: ['remove_button'],
-                            maxItems: 1,
-                        });
-                        tomselect.on('change', (value) => {
-                            this.value = value;
-                        });" class="input__field @error('user_id') input__field--error @enderror" wire:model="user_id"
-                            wire:ignore x-ref="select" x-cloak>
-                            @foreach ($users as $user)
-                            <option value="">Select author</option>
-                            <option value="{{ $user->id }}">{{ ucfirst($user->name) }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @error('user_id')
-                    <x-validation-message> {{ $message }} </x-validation-message>
-                    @enderror
-                </div>
-                <div>
-                    <label for="select-category" class="block text-sm font-medium leading-6 text-gray-800">Category
-                        <span class="text-pink-600 text-xs">*</span></label>
-                    <div class="mt-2">
-                        <select x-data x-init="const tomselect = new TomSelect($refs.select, {
-                            plugins: ['remove_button'],
-                            maxItems: 1,
-                        });
-                        tomselect.on('change', (value) => {
-                            this.value = value;
-                        });" class="peer input__field @error('category_id') input__field--error @enderror"
-                            wire:model="category_id" wire:ignore x-ref="select" x-cloak>
-                            @foreach ($categories as $category)
-                            <option value="">Select category</option>
-                            <option value="{{ $category->id }}">{{ $category->name }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @error('category_id')
-                    <x-validation-message> {{ $message }} </x-validation-message>
-                    @enderror
-                </div>
+                <x-select name="user_id" label="Author">
+                    <option value="">Select author</option>
+                    @foreach ($users as $user)
+                    <option value="{{ $user->id }}"> {{ ucfirst($user->name) }}</option>
+                    @endforeach
+                </x-select>
+
+                <x-select name="category_id" label="Category">
+                    <option value="">Select category</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </x-select>
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
                 <div>
@@ -87,7 +55,7 @@
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="date" id="published_at" wire:model="published_at"
-                            class="peer input__field @error('published_at') input__field--error @enderror">
+                            class="input__field @error('published_at') input__field--error @enderror">
                     </div>
                     @error('published_at')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -123,9 +91,10 @@
                 <span class="text-gray-400">Save as draft</span>
             </div>
             <div class="py-4">
-                <button type="button" wire:click.prevent="save"
+                <x-button action="save"
                     class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    {{ $is_draft ? 'Publish as draft' : 'Save and Publish' }}</button>
+                    {{ $is_draft ? 'Publish as draft' : 'Save and Publish' }}
+                </x-button>
             </div>
 
         </form>

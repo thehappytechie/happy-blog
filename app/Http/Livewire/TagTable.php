@@ -32,7 +32,7 @@ final class TagTable extends PowerGridComponent
             Exportable::make('export')
                 ->striped()
                 ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
-                Header::make()->showSearchInput()
+            Header::make()->showSearchInput()
                 ->showToggleColumns(),
             Footer::make()
                 ->showPerPage()
@@ -206,7 +206,7 @@ final class TagTable extends PowerGridComponent
             Button::add('bulk-delete')
                 ->caption(__('Bulk delete'))
                 ->class('text-xs cursor-pointer block bg-red-100 text-red-600 border border-red-300 rounded py-1.5 px-1.5 leading-tight focus:outline-none focus:bg-red focus:border-red-600 dark:border-red-500 dark:bg-red-500 2xl:dark:placeholder-gray-300 dark:text-red-200 dark:text-red-300')
-                ->emit('bulkDelete',[]),
+                ->emit('bulkDelete', []),
         ];
     }
 
@@ -222,13 +222,12 @@ final class TagTable extends PowerGridComponent
 
     public function bulkDelete(): void
     {
-        if (count($this->checkboxValues) == 0) {
+        if (count($this->checkboxValues) > 0) {
+            $this->emit('openModal', 'bulk-delete-tag-modal', [
+                'tagIds' => $this->checkboxValues,
+            ]);
+        } else {
             $this->dispatchBrowserEvent('showAlert', ['message' => 'You must select at least one item!']);
-            return;
         }
-        $this->emit('openModal', 'bulk-delete-tag-modal', [
-            'tagIds' => $this->checkboxValues,
-        ]);
     }
-
 }

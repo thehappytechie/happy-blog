@@ -32,9 +32,10 @@ class Create extends Component
                 'contents' => ['required', 'string'],
                 'is_draft' => ['boolean', 'nullable'],
                 'published_at' => ['required', 'date'],
-                'user_id' => ['exists:users,id', 'nullable'],
-                'category_id' => ['exists:categories,id', 'nullable'],
-                'feature_image' => ['required',
+                'user_id' => ['required', 'exists:users,id', 'nullable'],
+                'category_id' => ['required', 'exists:categories,id', 'nullable'],
+                'feature_image' => [
+                    'required',
                     File::image()
                         ->types(['jpg', 'png', 'jpeg']),
                 ],
