@@ -38,6 +38,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('tags/index', \App\Http\Livewire\Tag\Index::class)->name('tag.index');
 
+    Route::get('users/index', \App\Http\Livewire\User\Index::class)->name('user.index');
+
     Route::get('user/update-password', \App\Http\Livewire\User\UpdatePassword::class)->name('user.update.password');
 
     Route::get('user/{user}/update-profile', \App\Http\Livewire\User\UpdateProfile::class)->name('user.update.profile');

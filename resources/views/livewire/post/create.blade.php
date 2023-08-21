@@ -1,6 +1,5 @@
 <div>
-
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 
     <div class="py-4 mt-2">
 
@@ -75,7 +74,7 @@
                     @error('feature_image') <x-validation-message> {{ $message }} </x-validation-message> @enderror
             </div>
             <div class="mt-8" wire:ignore>
-                <x-quill.text-editor> </x-quill.text-editor>
+                <x-simple-mde.text-editor></x-simple-mde.text-editor>
             </div>
             <div class="mt-1">
                 @error('contents')
@@ -111,6 +110,6 @@
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 @endpush
 
-@push('quillJs')
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+@push('simpleMDE')
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 @endpush

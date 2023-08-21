@@ -27,16 +27,10 @@ module.exports = {
         },
     },
     safelist: [
-        "sm:max-w-sm",
-        "sm:max-w-md",
-        "sm:max-w-lg",
-        "sm:max-w-xl",
-        "sm:max-w-2xl",
-        "sm:max-w-3xl",
-        "sm:max-w-4xl",
-        "sm:max-w-5xl",
-        "sm:max-w-6xl",
-        "sm:max-w-7xl"
-    ],
+        {
+           pattern: /max-w-(sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl)/,
+           variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+        },
+     ],
     plugins: [],
 }

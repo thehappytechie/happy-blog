@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,9 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <link rel="stylesheet" href="{{ asset('css/tom-select.css') }}" />
-
+    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
 
@@ -118,8 +117,8 @@
         </div>
     </div>
 
-    @livewire('livewire-ui-modal')
     @livewireScripts
+    @livewire('livewire-ui-modal')
 
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 
@@ -130,6 +129,8 @@
     @stack('powergridJs')
 
     @stack('quillJs')
+
+    @stack('simpleMDE')
 
     <script src="//unpkg.com/alpinejs" defer></script>
 

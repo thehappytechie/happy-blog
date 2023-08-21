@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('title')->nullable();
             $table->string('profile_image')->nullable();
+            $table->boolean('disable_login')->default(0);
+            $table->boolean('force_password_change')->default(0);
+            $table->timestamp('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

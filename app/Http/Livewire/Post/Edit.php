@@ -45,10 +45,6 @@ class Edit extends Component
                 'published_at' => ['required', 'date'],
                 'user_id' => ['required', 'exists:users,id'],
                 'category_id' => ['required', 'exists:categories,id'],
-                'feature_image' => [
-                    File::image()
-                        ->types(['jpg', 'png', 'jpeg']), 'nullable',
-                ],
             ],
         );
         if ($this->feature_image instanceof \Livewire\TemporaryUploadedFile) {

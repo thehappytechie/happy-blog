@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Post;
 use App\Models\Tag;
 use Livewire\Component;
 use Illuminate\Support\Str;
