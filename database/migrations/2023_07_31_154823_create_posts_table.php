@@ -26,6 +26,7 @@ return new class extends Migration
                 ->constrained('users')
                 ->onDelete('cascade')->nullable();
             $table->string('feature_image')->nullable();
+            $table->integer('views')->nullable();
             $table->timestamps();
         });
     }

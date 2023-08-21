@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Http\Livewire\Post;
+namespace App\Http\Livewire\Blog;
 
 use App\Models\Post;
 use Livewire\Component;
 
-class Show extends Component
+class Index extends Component
 {
-    public $post;
+    public $post, $posts;
 
     public function mount(Post $post)
     {
         $this->post = $post;
+        $this->posts = Post::all();
     }
 
-        public function incrementViewCount()
+    public function incrementViewCount()
     {
         $this->post->increment('views');
     }
 
     public function render()
     {
-        return view('livewire.post.show');
+        return view('livewire.blog.index');
     }
 }
