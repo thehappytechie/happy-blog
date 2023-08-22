@@ -28,12 +28,13 @@ class UpdateProfile extends Component
                 'name' => ['required', 'string'],
                 'email' => ['required', 'string', Rule::unique(User::class)->ignore($this->user)],
                 'bio' => ['string', 'nullable'],
-                'username' => ['required', 'string', Rule::unique(User::class)->ignore($this->user)],
+                'username' => ['string', Rule::unique(User::class)->ignore($this->user), 'nullable'],
                 'title' => ['string', 'nullable'],
-                'website' => ['required', 'url:http,https', 'nullable'],
+                'website' => ['url:http,https', 'nullable'],
             ],
         );
         $this->user->update($validatedData);
+        session()->flash('success', 'Profile updated successfully.');
         return redirect()->route('dashboard');
     }
 

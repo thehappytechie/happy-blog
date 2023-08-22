@@ -33,27 +33,9 @@
                 </p>
                 <form action="{{ route('login') }}" method="POST" class="flex flex-col md:pt-8">
                     @csrf
-                    <div>
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Email</label>
-                        <div class="mt-2">
-                            <input type="email" id="email" name="email"
-                                class="input__field @error('email') input__field--error @enderror" required>
-                        </div>
-                        @error('email')
-                        <x-validation-message> {{ $message }} </x-validation-message>
-                        @enderror
-                    </div>
-                    <div class="pt-4 mb-4">
-                        <label for="password" class="block text-sm font-medium leading-6 text-gray-800">Password</label>
-                        <div class="mt-2">
-                            <input type="password" id="password" name="password" autocomplete="current-password"
-                                class="input__field @error('password') input__field--error @enderror" required>
-                        </div>
-                        @error('password')
-                        <x-validation-message> {{ $message }} </x-validation-message>
-                        @enderror
-                    </div>
-                    <div class="flex items-center justify-between mb-8">
+                    <x-input-field type="email" name="email" label="Email" />
+                    <x-input-field type="password" name="password" label="Password" />
+                    <div class="flex items-center justify-between mb-8 mt-2">
                         <div class="flex items-center">
                             <input id="remember" name="remember" type="checkbox"
                                 class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">

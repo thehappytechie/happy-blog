@@ -1,9 +1,9 @@
 <div>
-    <div class="py-20">
+    <div class="py-10">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:max-w-4xl">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
-                <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.
+                <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to do cool stuff with our expert advice.
                 </p>
 
                 <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
@@ -15,9 +15,9 @@
                             <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
                         </div>
                         <div>
-                            <livewire:like :post="$post" />
                             <div class="flex items-center gap-x-4 text-xs">
-                                <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                                <time datetime="{{ $post->datePostFormat() }}" class="text-gray-500">{{
+                                    $post->datePostFormat() }}</time>
                                 <a href="#"
                                     class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{
                                     $post->category->name }}</a>
@@ -32,6 +32,10 @@
                                 </h3>
                                 <p class="mt-5 text-sm leading-6 text-gray-600">
                                     {!! $post->excerpt() !!}</p>
+                            </div>
+                            <div class="flex items-center gap-x-4 text-xs">
+                                <livewire:like :post="$post" />
+                                <x-post-view-count :post="$post" />
                             </div>
                             <div class="mt-6 flex border-t border-gray-900/5 pt-6">
                                 <div class="relative flex items-center gap-x-4">
@@ -51,7 +55,6 @@
                         </div>
                     </article>
                     @endforeach
-                    <!-- More posts... -->
                 </div>
             </div>
         </div>

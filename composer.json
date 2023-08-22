@@ -15,7 +15,9 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "openspout/openspout": "^4",
+        "pavel-mironchik/laravel-backup-panel": "^2.2",
         "power-components/livewire-powergrid": "^4.8",
+        "spatie/laravel-backup": "^8.3",
         "spatie/laravel-markdown": "^2.4",
         "torchlight/torchlight-laravel": "^0.5.14",
         "wire-elements/modal": "^1.0"

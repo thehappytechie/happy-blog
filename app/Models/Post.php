@@ -25,6 +25,11 @@ class Post extends Model
         return Carbon::parse($this->published_at)->diffForHumans();
     }
 
+    public function datePostFormat()
+    {
+        return Carbon::parse($this->published_at)->toFormattedDateString();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

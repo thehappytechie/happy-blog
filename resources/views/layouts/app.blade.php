@@ -9,15 +9,19 @@
         rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Prata&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/tom-select.css') }}" />
     <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+
     @vite('resources/css/app.css')
 </head>
 
 <body x-data="{ open: false }" x-cloak class="bg-gray-50">
+
+    <x-alert></x-alert>
 
     <style>
         [x-cloak] {
@@ -54,8 +58,7 @@
 
         <div class="lg:pl-72 bg-gray-50">
             <div class="sticky top-0 z-40 lg:mx-auto lg:max-w-7xl lg:px-8 bg-white border-b border-gray-200">
-                <div
-                    class="flex h-16 items-center gap-x-4 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none">
+                <div class="flex h-16 items-center gap-x-4 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none">
                     <button type="button" @click="open = ! open" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
                         <span class="sr-only">Open sidebar</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

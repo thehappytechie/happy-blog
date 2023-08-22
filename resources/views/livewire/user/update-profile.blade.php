@@ -1,5 +1,4 @@
 <div>
-
     <div class="py-4 mt-2">
 
         <x-page-heading pageHeading="Profile" />
@@ -66,8 +65,7 @@
                         <label for="bio" class="block text-sm font-medium leading-6 text-gray-800">Add your
                             bio</label>
                         <div class="mt-2">
-                            <textarea rows="4" wire:model="bio" id="bio"
-                                class="input__field"></textarea>
+                            <textarea rows="4" wire:model="bio" id="bio" class="input__field"></textarea>
                         </div>
                     </div>
                 </div>
