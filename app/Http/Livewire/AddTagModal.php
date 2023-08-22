@@ -13,6 +13,11 @@ class AddTagModal extends ModalComponent
 {
     public $name, $slug;
 
+    public static function modalMaxWidth(): string
+    {
+        return 'md';
+    }
+
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name);

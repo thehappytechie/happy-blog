@@ -14,6 +14,14 @@
         <form>
             <p class="text-xs text-gray-500"><span class="text-red-600 text-xs">*</span> indicates
                 required field</p>
+            <div class="my-10">
+                <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                    <input type="checkbox" id="toggle" wire:model="is_draft"
+                        class="checked:bg-blue-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-300 border-4 appearance-none cursor-pointer"><label
+                        for="toggle" class="block h-6 overflow-hidden bg-gray-300 rounded-full cursor-pointer"></label>
+                </div>
+                <span class="text-gray-500">Save as draft</span>
+            </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-6">
                 <div>
                     <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title
@@ -68,7 +76,8 @@
                     </div>
                 </div>
             </div>
-            <div class="overflow-auto mt-8">
+
+            <div class="grid grid-cols-2 md:grid-cols-2 mt-8">
                 <x-filepond.create-upload>
                     </x-create-filepond-upload>
                     @error('feature_image') <x-validation-message> {{ $message }} </x-validation-message> @enderror
@@ -80,14 +89,6 @@
                 @error('contents')
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
-            </div>
-            <div class="my-8">
-                <div class="relative inline-block w-10 mr-2 align-middle select-none">
-                    <input type="checkbox" id="toggle" wire:model="is_draft"
-                        class="checked:bg-blue-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-300 border-4 appearance-none cursor-pointer"><label
-                        for="toggle" class="block h-6 overflow-hidden bg-gray-300 rounded-full cursor-pointer"></label>
-                </div>
-                <span class="text-gray-400">Save as draft</span>
             </div>
             <div class="py-4">
                 <x-button action="save"
