@@ -28,7 +28,7 @@
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="title" wire:model="title" wire:keyup.debounce.200ms="generateSlug"
-                            class="input__field @error('title') input__field--error @enderror">
+                            class="input__field">
                     </div>
                     @error('title')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -42,54 +42,79 @@
                 </div>
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
-                <x-select name="user_id" label="Author">
-                    <option value="">Select author</option>
-                    @foreach ($users as $user)
-                    <option value="{{ $user->id }}"> {{ ucfirst($user->name) }}</option>
-                    @endforeach
-                </x-select>
+                <div>
+                    <x-select name="category_id" label="Category">
+                        <option value="">Select category</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </x-select>
+                    <div class="mt-2">
+                        <button type="button" wire:click="$emit('openModal', 'add-category-modal')"
+                            class="rounded-full bg-indigo-600 p-1 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-                <x-select name="category_id" label="Category">
-                    <option value="">Select category</option>
-                    @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </x-select>
+                {{-- <div>
+                    <label for="select" class="block text-sm font-medium leading-6 text-gray-800">State
+                        <span class="text-pink-600 text-xs">*</span></label>
+                    <div class="mt-2">
+                        <select multiple x-data x-init="const tomselect = new TomSelect($refs.select, {
+                            plugins: ['remove_button'],
+                        });
+                        tomselect.on('change', (value) => {
+                            this.value = value;
+                        });" class="" wire:ignore x-ref="select" x-cloak>
+                            <option value="">Select a state...</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                        </select>
+                    </div>
+
+                </div> --}}
+
+                <div>
+                    <label for="tag" class="block text-sm font-medium leading-6 text-gray-800">Tags</label>
+                    <div class="mt-2">
+                        <input type="text" name="tag" id="tag" class="input__field">
+                    </div>
+                </div>
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
                 <div>
                     <label for="published_at" class="block text-sm font-medium leading-6 text-gray-800">Published date
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
-                        <input type="date" id="published_at" wire:model="published_at"
-                            class="input__field @error('published_at') input__field--error @enderror">
+                        <input type="date" id="published_at" wire:model="published_at" class="input__field">
                     </div>
                     @error('published_at')
                     <x-validation-message> {{ $message }} </x-validation-message>
                     @enderror
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Tags</label>
-                    <div class="mt-2">
-                        <input type="text" name="email" id="email"
-                            class="outline-none block w-full rounded-md border-0 px-3 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-2 mt-8">
                 <x-filepond.create-upload>
                     </x-create-filepond-upload>
-                    @error('feature_image') <x-validation-message> {{ $message }} </x-validation-message> @enderror
             </div>
-            <div class="mt-8" wire:ignore>
+            @error('feature_image')
+            <x-validation-message> {{ $message }} </x-validation-message>
+            @enderror
+
+            <div class="mt-8">
                 <x-simple-mde.text-editor></x-simple-mde.text-editor>
-            </div>
-            <div class="mt-1">
                 @error('contents')
                 <x-validation-message> {{ $message }} </x-validation-message>
                 @enderror
             </div>
+
             <div class="py-4">
                 <x-button action="save"
                     class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

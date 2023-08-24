@@ -8,8 +8,8 @@
         });
         tomselect.on('change', (value) => {
             this.value = value;
-        });" class="input__field @error($name) input__field--error @enderror" wire:model="{{ $name }}" wire:ignore
-            x-ref="select" x-cloak>
+        });" wire:model="{{ $name }}" wire:ignore x-ref="select"
+            x-cloak>
             {{ $slot }}
         </select>
     </div>

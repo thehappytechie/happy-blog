@@ -10,7 +10,7 @@
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="text" id="name" wire:model="name"
-                            wire:keyup.debounce.200ms="generateSlug" class="input__field @error('name') input__field--error @enderror">
+                            wire:keyup.debounce.200ms="generateSlug" class="input__field">
                     </div>
                     @error('name')
                         <x-validation-message> {{ $message }} </x-validation-message>

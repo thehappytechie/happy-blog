@@ -26,7 +26,7 @@
                 <label for="current_password" class="block text-sm font-medium leading-6 text-gray-800">Current password</label>
                 <div class="mt-2">
                     <input type="password" id="current_password" wire:model="current_password" autocomplete="current-password"
-                        class="input__field @error('current_password') input__field--error @enderror" required>
+                        class="input__field" required>
                 </div>
                 @error('current_password')
                 <x-validation-message> {{ $message }} </x-validation-message>
@@ -36,7 +36,7 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-800">New password</label>
                 <div class="mt-2">
                     <input type="password" id="password" wire:model="password" autocomplete="new-password"
-                        class="input__field @error('password') input__field--error @enderror" required>
+                        class="input__field" required>
                 </div>
                 @error('password')
                 <x-validation-message> {{ $message }} </x-validation-message>
@@ -46,7 +46,7 @@
                 <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-800">Confirm assword</label>
                 <div class="mt-2">
                     <input type="password" id="password_confirmation" wire:model="password_confirmation" autocomplete="current-password"
-                        class="input__field @error('password') input__field--error @enderror" required>
+                        class="input__field" required>
                 </div>
                 @error('password')
                 <x-validation-message> {{ $message }} </x-validation-message>

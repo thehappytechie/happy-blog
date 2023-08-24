@@ -20,13 +20,17 @@
             </p>
             <form action="{{ route('login') }}" method="POST" class="flex flex-col md:pt-8">
                 @csrf
-                <x-input-field type="email" name="email" label="Email" />
-                <x-input-field type="password" name="password" label="Password" />
-                <div class="flex items-center justify-between mb-8 mt-2">
+                <div>
+                    <x-input-field type="email" name="email" label="Email" />
+                </div>
+                <div class="mt-4">
+                    <x-input-field type="password" name="password" label="Password" />
+                </div>
+                <div class="flex items-center justify-between mb-8 mt-4">
                     <div class="flex items-center">
                         <input id="remember" name="remember" type="checkbox"
                             class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="remember" class="ml-2 block text-sm text-gray-600">Remember
+                        <label for="remember" class="ml-2 block text-sm text-gray-500">Remember
                             me</label>
                     </div>
                     <div class="text-sm">
@@ -48,4 +52,3 @@
 </div>
 
 @endsection
-

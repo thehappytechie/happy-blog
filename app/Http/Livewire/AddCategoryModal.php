@@ -32,6 +32,7 @@ class AddCategoryModal extends ModalComponent
         );
         Category::create($validatedData);
         $this->emit('pg:eventRefresh-default');
+        $this->emit('refresh');
         $this->closeModal();
     }
 

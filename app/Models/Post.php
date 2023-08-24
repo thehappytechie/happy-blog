@@ -15,6 +15,10 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    protected $withCount = [
+        'likes',
+    ];
+
     public function excerpt()
     {
         return Str::words($this->contents, 50);
@@ -71,7 +75,13 @@ class Post extends Model
         }
     }
 
-    protected $withCount = [
-        'likes',
-    ];
+    protected static function booted()
+    {
+        // We will automatically add the user to the post when it's saved.
+        static::creating(function ($post) {
+            if (auth()->user()) {
+                $post->user_id = auth()->id();
+            }
+        });
+    }
 }

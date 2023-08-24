@@ -24,7 +24,7 @@
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
                         <input type="email" id="email" wire:model="email"
-                            class="input__field @error('title') input__field--error @enderror">
+                            class="input__field">
                     </div>
                     @error('email')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -34,7 +34,7 @@
                     <label for="username" class="block text-sm font-medium leading-6 text-gray-800">Username</label>
                     <div class="mt-2">
                         <input type="text" id="username" wire:model="username"
-                            class="input__field @error('username') input__field--error @enderror">
+                            class="input__field">
                     </div>
                     @error('email')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -44,7 +44,7 @@
                     <label for="website" class="block text-sm font-medium leading-6 text-gray-800">Website</label>
                     <div class="mt-2">
                         <input type="url" id="website" wire:model="website"
-                            class="input__field @error('website') input__field--error @enderror">
+                            class="input__field">
                     </div>
                     @error('website')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -54,7 +54,7 @@
                     <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title</label>
                     <div class="mt-2">
                         <input type="text" id="title" wire:model="title"
-                            class="input__field @error('title') input__field--error @enderror">
+                            class="input__field">
                     </div>
                     @error('title')
                     <x-validation-message> {{ $message }} </x-validation-message>

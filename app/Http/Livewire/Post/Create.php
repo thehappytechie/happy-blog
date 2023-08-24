@@ -14,9 +14,11 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $title, $slug, $category_id, $contents, $published_at, $user_id, $feature_image;
+    public $title, $slug, $category_id, $contents, $published_at, $feature_image;
 
     public $is_draft = 0;
+
+    protected $listeners = ['refresh' => '$refresh'];
 
     public function generateSlug()
     {
@@ -32,7 +34,6 @@ class Create extends Component
                 'contents' => ['required', 'string'],
                 'is_draft' => ['boolean', 'nullable'],
                 'published_at' => ['required', 'date'],
-                'user_id' => ['required', 'exists:users,id', 'nullable'],
                 'category_id' => ['required', 'exists:categories,id', 'nullable'],
                 'feature_image' => [
                     'required',
@@ -51,8 +52,7 @@ class Create extends Component
 
     public function render()
     {
-        $users = DB::table('users')->select('id', 'name')->get();
         $categories = DB::table('categories')->select('id', 'name')->orderBy('name', 'asc')->get();
-        return view('livewire.post.create', compact('users', 'categories'));
+        return view('livewire.post.create', compact('categories'));
     }
 }
