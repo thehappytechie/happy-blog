@@ -15,7 +15,7 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
 
     Route::get('/', function () {
         return view('welcome');
