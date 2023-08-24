@@ -17,6 +17,8 @@
 
 <body x-data="{ open: false }" x-cloak class="bg-gray-50">
 
+    <x-alert></x-alert>
+
     <style>
         [x-cloak] {
             display: none !important;
