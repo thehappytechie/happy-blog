@@ -1,5 +1,4 @@
 <div>
-    {{ $errors }}
     <div class="bg-white px-5 py-5">
         <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-700 mb-2">Add User
         </h2>

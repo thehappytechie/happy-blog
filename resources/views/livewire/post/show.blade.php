@@ -1,6 +1,4 @@
 <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
     {{-- <style>
         .contents strong {
@@ -16,6 +14,7 @@
             text-decoration: underline;
         }
     </style> --}}
+    <!-- Target -->
 
     <div class="py-4 mt-2">
         <button type="button"
@@ -143,7 +142,13 @@
                 </li>
             </ul>
         </div>
-
     </div>
 
 </div>
+
+@push('highlightJs')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+@endpush

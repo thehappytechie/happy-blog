@@ -4,15 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-        rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/tom-select.css') }}" />
-    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+
+    @stack('filepondCss')
+
+    @stack('simpleMDECss')
+
     <link rel="stylesheet" href="{{ asset('css/notyf.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/highlight.css') }}">
 
     @vite('resources/css/app.css')
 </head>
@@ -114,6 +117,8 @@
     @stack('simpleMDE')
 
     @stack('filepondJs')
+
+    @stack('highlightJs')
 
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 

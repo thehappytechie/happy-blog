@@ -1,6 +1,13 @@
-<div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+@push('filepondCss')
+<link rel="stylesheet" href="{{ asset('css/filepond.css') }}">
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+@endpush
 
+@push('simpleMDECss')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+@endpush
+
+<div>
     <div class="py-4 mt-2">
 
         <button type="button"
