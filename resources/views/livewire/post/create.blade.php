@@ -60,27 +60,6 @@
                         </button>
                     </div>
                 </div>
-
-                {{-- <div>
-                    <label for="select" class="block text-sm font-medium leading-6 text-gray-800">State
-                        <span class="text-pink-600 text-xs">*</span></label>
-                    <div class="mt-2">
-                        <select multiple x-data x-init="const tomselect = new TomSelect($refs.select, {
-                            plugins: ['remove_button'],
-                        });
-                        tomselect.on('change', (value) => {
-                            this.value = value;
-                        });" class="" wire:ignore x-ref="select" x-cloak>
-                            <option value="">Select a state...</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                        </select>
-                    </div>
-
-                </div> --}}
-
                 <div>
                     <label for="tag" class="block text-sm font-medium leading-6 text-gray-800">Tags</label>
                     <div class="mt-2">

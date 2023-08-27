@@ -8,7 +8,7 @@
         });
         tomselect.on('change', (value) => {
             this.value = value;
-        });" wire:model="{{ $name }}" wire:ignore x-ref="select"
+        });" wire:model="{{ $name }}" x-ref="select"
             x-cloak>
             {{ $slot }}
         </select>

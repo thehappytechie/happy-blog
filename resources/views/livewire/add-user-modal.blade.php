@@ -18,11 +18,6 @@
                     </div>
                 </div>
             </div>
-            <div class="flex items-center my-6">
-                <input id="disable_login" name="disable_login" type="checkbox" wire:model="disable_login"
-                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                <label for="disable_login" class="ml-2 block text-sm text-gray-500">Disable login</label>
-            </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4 mb-2">
                 <div>
                     <x-input-field type="name" name="name" label="Full name" />
@@ -33,11 +28,27 @@
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4 mb-2">
                 <div>
-                    <x-input-field type="password" name="password" label="Password" />
+                    <x-input-field type="text" name="password" label="Password" />
                 </div>
                 <div>
-                    <x-input-field type="password" name="password_confirmation" label="Confirm password" />
+                    <x-input-field type="text" name="password_confirmation" label="Confirm password" />
                 </div>
+                <div>
+                    <button type="button" wire:click="generatePassword"
+                        class="inline-flex items-center gap-x-1 rounded-md border border-gray-600 px-2 py-1 text-xs text-gray-800 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <svg class="-ml-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                        Generate
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center my-6">
+                <input id="disable_login" type="checkbox" wire:model="disable_login"
+                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                <label for="disable_login" class="ml-2 block text-sm text-gray-500">Disable login</label>
             </div>
         </form>
     </div>

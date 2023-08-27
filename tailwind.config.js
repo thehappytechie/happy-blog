@@ -21,7 +21,7 @@ module.exports = {
                 "pg-primary": colors.gray,
             },
             fontFamily: {
-                sans: ['IBM Plex Sans', 'sans-serif'],
+                sans: ['Manrope', 'sans-serif'],
             },
         },
     },
