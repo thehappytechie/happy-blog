@@ -54,7 +54,7 @@
             </ul>
             <ul role="list" class="flex flex-1 flex-col gap-y-7">
                 <li class="mt-auto">
-                    <a href="#"
+                    <a href="{{ route('setting.index') }}"
                         class="group -mx-2 flex gap-x-2 rounded-md p-2 text-base font-medium leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                         <svg class='h-5 w-5 shrink-0' viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                             <path fill="currentColor" fill-opacity=".15"

@@ -1,20 +1,70 @@
 <div>
 
-    {{-- <style>
+    <style>
         .contents strong {
-            font-weight: 600 !important;
+            font-weight: 500 !important;
         }
 
         .contents a {
-            color: #2196f3;
-            text-decoration: underline;
+            text-decoration: underline
         }
 
-        .contents a {
-            text-decoration: underline;
+        .contents a:hover {
+            text-decoration: none
         }
-    </style> --}}
-    <!-- Target -->
+
+        .contents p {
+            margin: 20px 0 20px 0;
+        }
+
+        .contents ol {
+            list-style: disc;
+            list-style-position: outside;
+            margin: 20px 50px 20px 50px;
+        }
+
+        .contents ul {
+            list-style: decimal;
+            list-style-position: outside;
+            margin: 20px 50px 20px 50px;
+        }
+
+        .contents img {
+            margin: 50px 0 50px 0;
+        }
+
+        blockquote {
+            border-left: 5px solid#000;
+            border-radius: 2px;
+            background-color: #f3f3f3;
+            margin: 1.5em 5px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+
+        blockquote:before {
+            color: #000;
+            content: open-quote;
+            font-size: 3em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+
+        code {
+            background: #f0f2f1;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .125);
+            font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+            padding: .25rem .5rem;
+            font-size: .875rem;
+            border-radius: .25rem;
+            word-break: break-word;
+        }
+    </style>
 
     <div class="py-4 mt-2">
         <button type="button"
@@ -65,8 +115,8 @@
                     </div>
                 </a>
             </div>
-            <div class="text-gray-600 contents">
-                @markdown ($post->contents)
+            <div class="text-gray-800 contents">
+                @markdown($post->contents)
             </div>
             <livewire:like :post="$post" />
         </div>

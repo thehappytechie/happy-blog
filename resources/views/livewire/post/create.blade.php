@@ -129,6 +129,10 @@
 
 </div>
 
+@push('simpleMDE')
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+@endpush
+
 @push('filepondJs')
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js">
 </script>
@@ -137,6 +141,3 @@
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 @endpush
 
-@push('simpleMDE')
-<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-@endpush

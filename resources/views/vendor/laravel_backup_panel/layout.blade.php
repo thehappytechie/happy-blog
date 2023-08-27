@@ -8,14 +8,20 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="{{ asset('vendor/laravel_backup_panel/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/laravel_backup_panel/app.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
+
+<style>
+     body {
+        font-family: "IBM Plex Sans", sans-serif;
+    }
+</style>
 <body>
     <livewire:laravel_backup_panel::app />
 

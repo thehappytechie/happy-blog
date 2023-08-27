@@ -36,9 +36,17 @@ Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login']
 
     Route::get('posts/index', \App\Http\Livewire\Post\Index::class)->name('post.index');
 
+    Route::get('roles/index', \App\Http\Livewire\Role\Index::class)->name('role.index');
+
+    Route::get('activity/log', \App\Http\Livewire\Activity\Index::class)->name('activity.index');
+
+    Route::get('authentication/log', \App\Http\Livewire\Authentication\Index::class)->name('authentication.index');
+
     Route::get('tags/index', \App\Http\Livewire\Tag\Index::class)->name('tag.index');
 
     Route::get('blogs/index', \App\Http\Livewire\Blog\Index::class)->name('blog.index');
+
+    Route::get('settings/index', \App\Http\Livewire\Setting\Index::class)->name('setting.index');
 
     Route::get('users/index', \App\Http\Livewire\User\Index::class)->name('user.index');
 
