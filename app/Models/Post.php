@@ -7,11 +7,13 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Post extends Model
+class Post extends Model implements Auditable
 {
     use HasFactory;
     use HasUlids;
+    use \OwenIt\Auditing\Auditable;
 
     protected $guarded = ['id'];
 

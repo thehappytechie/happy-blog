@@ -21,10 +21,10 @@
             <form action="{{ route('register') }}" method="POST" class="flex flex-col md:pt-8">
                 @csrf
                 <div>
-                    <x-input-field type="name" name="name" value="{{ old('name') }}" label="Full name" />
+                    <x-input-field type="name" name="name" label="Full name" />
                 </div>
                 <div class="mt-4">
-                    <x-input-field type="email" name="email" value="{{ old('email') }}" label="Email" />
+                    <x-input-field type="email" name="email" label="Email" />
                 </div>
                 <div class="mt-4">
                     <x-input-field type="password" name="password" autocomplete="password" label="Password" />

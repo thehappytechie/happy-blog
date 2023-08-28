@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "openspout/openspout": "^4",
+        "owen-it/laravel-auditing": "^13.5",
         "pavel-mironchik/laravel-backup-panel": "^2.2",
         "power-components/livewire-powergrid": "^4.8",
         "spatie/laravel-backup": "^8.3",
