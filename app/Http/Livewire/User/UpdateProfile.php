@@ -13,13 +13,14 @@ class UpdateProfile extends Component
     public function mount(User $user)
     {
         $this->user = $user;
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->bio = $user->bio;
-        $this->username = $user->username;
-        $this->title = $user->title;
-        $this->website = $user->website;
+
+        $fields = ['name', 'email', 'bio', 'username', 'title', 'website'];
+
+        foreach ($fields as $field) {
+            $this->{$field} = $user->{$field};
+        }
     }
+
 
     public function save()
     {

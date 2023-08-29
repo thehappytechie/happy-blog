@@ -1,6 +1,6 @@
-<div>
+ <div>
     <div class="bg-white px-5 py-5">
-        <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-700 mb-2">Add User
+        <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-700 mb-2">Add Author
         </h2>
         <form class="border-t border-gray-100" method="POST">
             <div class="rounded-md bg-orange-100 p-4 my-4">
@@ -13,8 +13,8 @@
                         </svg>
                     </div>
                     <div class="ml-3 flex-1 md:flex md:justify-between">
-                        <p class="text-sm text-orange-700">Am email with the account credentials are automatically sent
-                            to the user and they will receive a prompt to change password on first time login.</p>
+                        <p class="text-sm text-orange-700">An email with the account credentials is sent
+                            to the user to change their password on first time login.</p>
                     </div>
                 </div>
             </div>

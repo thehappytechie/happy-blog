@@ -22,7 +22,7 @@
                 </a>
             </div>
             <div class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
-                <p class="text-4xl text-center font-extrabold mb-2">
+                <p class="text-4xl text-center font-heading mb-2">
                     Reset Your Password
                 </p>
                 <p class="text-gray-500">Ensure your new password is 8 characters, contain one number and one special

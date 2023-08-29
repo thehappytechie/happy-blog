@@ -10,6 +10,14 @@
 <div>
     <div class="py-4 mt-2">
 
+        <a href="{{ route('post.index') }}"
+            class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-indigo-800 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>Back to posts
+        </a>
+
         <x-page-heading pageHeading="Create Post" />
 
         <form>
@@ -119,4 +127,3 @@
 </script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 @endpush
-

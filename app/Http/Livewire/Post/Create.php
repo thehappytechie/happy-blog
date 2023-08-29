@@ -22,7 +22,13 @@ class Create extends Component
 
     public function generateSlug()
     {
-        $this->slug = Str::slug($this->title);
+        $slug = Str::slug($this->title);
+        $count = Post::where('slug', 'like', "%{$slug}%")->count();
+
+        if ($count > 0) {
+            $slug .= '-' . ($count + 1);
+        }
+        $this->slug = $slug;
     }
 
     public function save()

@@ -4,12 +4,10 @@
     <div class="mt-2">
         <select x-data x-init="const tomselect = new TomSelect($refs.select, {
             plugins: ['remove_button'],
-            maxItems: 1,
         });
         tomselect.on('change', (value) => {
             this.value = value;
-        });" wire:model="{{ $name }}" x-ref="select"
-            x-cloak>
+        });" wire:model="{{ $name }}" x-ref="select" x-cloak>
             {{ $slot }}
         </select>
     </div>

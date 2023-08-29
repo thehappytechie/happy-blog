@@ -19,19 +19,24 @@ class Edit extends Component
 
     public function generateSlug()
     {
-        $this->slug = Str::slug($this->title);
+        $slug = Str::slug($this->title);
+        $count = Post::where('slug', 'like', "%{$slug}%")->count();
+
+        if ($count > 0) {
+            $slug .= '-' . ($count + 1);
+        }
+        $this->slug = $slug;
     }
 
     public function mount(Post $post)
     {
         $this->post = $post;
-        $this->title = $post->title;
-        $this->slug = $post->slug;
-        $this->category_id = $post->category_id;
-        $this->user_id = $post->user_id;
-        $this->is_draft = $post->is_draft;
-        $this->contents = $post->contents;
-        $this->published_at = $post->published_at;
+
+        $fields = ['title', 'slug', 'category_id', 'user_id', 'is_draft', 'contents', 'published_at'];
+
+        foreach ($fields as $field) {
+            $this->{$field} = $post->{$field};
+        }
     }
 
     public function save()
