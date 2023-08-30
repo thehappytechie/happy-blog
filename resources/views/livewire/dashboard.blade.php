@@ -10,7 +10,7 @@
                 <div>
                     <div class="flex items-center">
                         <h1 class="ml-3 text-xl font-semibold leading-7 text-gray-800 sm:truncate sm:leading-9">
-                            Howdy 👋 {{ Auth::user()->name }}</h1>
+                            Howdy 👋 {{ Auth::user()->name }},</h1>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,8 @@
                                     class="py-3.5 pl-4 pr-3 text-left text-sm font-medium text-gray-900 sm:pl-0">Name of
                                     author
                                 </th>
-                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Title & category
+                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Title &
+                                    category
                                 </th>
                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Post
                                     status
@@ -122,10 +123,15 @@
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                                     <div class="text-gray-900">{{ $post->title }}</div>
-                                    <div class="mt-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">{{ $post->category->name }}</div>
+                                    <div
+                                        class="mt-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                                        {{ $post->category->name }}</div>
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                    <x-post-status-badge :status="$post->status" />
+                                    <span
+                                        class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset {{ $post->is_draft == 1 ? 'bg-yellow-50 text-yellow-800 ring-yellow-600/20' : 'bg-green-50 text-green-700 ring-green-600/20' }}">
+                                        {{ $post->is_draft == 1 ? 'Draft' : 'Published' }}
+                                    </span>
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">{{
                                     $post->created_at->diffForHumans() }}</td>
