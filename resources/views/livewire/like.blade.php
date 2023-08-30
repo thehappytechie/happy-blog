@@ -10,6 +10,3 @@
         </button>
     </span>
 </div>
-
-
-<a href="https://ghanamaritime.org/home/wp-content/uploads/2023/08/MARITIME-CIRCULAR-FOR-NEW-DRs-2022.doc">MARITIME CIRCULAR FOR NEW DRs 2022</a>
