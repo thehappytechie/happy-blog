@@ -42,6 +42,8 @@ Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login']
     Route::get('users/index', \App\Http\Livewire\User\Index::class)->name('user.index');
     Route::get('users/create', \App\Http\Livewire\User\Create::class)->name('user.create');
     Route::get('user/{user}/show', \App\Http\Livewire\User\Show::class)->name('user.show');
+    Route::get('post/my-posts', \App\Http\Livewire\Post\UserPost::class)->name('user.posts');
+
     Route::get('user/update-password', \App\Http\Livewire\User\UpdatePassword::class)->name('user.update.password');
     Route::get('user/{user}/update-profile', \App\Http\Livewire\User\UpdateProfile::class)->name('user.update.profile');
 

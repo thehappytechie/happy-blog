@@ -25,6 +25,7 @@
             </svg>" route='post.create' title="Posts">
                 <x-navigation-submenu-link route='post.create'>Create Post</x-navigation-submenu-link>
                 <x-navigation-submenu-link route='post.index'>All Posts</x-navigation-submenu-link>
+                <x-navigation-submenu-link route='user.posts'>My Posts</x-navigation-submenu-link>
                 <x-navigation-submenu-link route='category.index'>Categories</x-navigation-submenu-link>
                 <x-navigation-submenu-link route='tag.index'>Tags</x-navigation-submenu-link>
             </x-navigation-submenu>

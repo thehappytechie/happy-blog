@@ -72,7 +72,7 @@ class Show extends Component
 
     public function render()
     {
-        $posts = Post::where('user_id','=',Auth::user()->id)->get();
-        return view('livewire.user.show',compact('posts'));
+        $posts = Post::where('user_id', '=', $this->user->id)->get();
+        return view('livewire.user.show', compact('posts'));
     }
 }

@@ -72,6 +72,20 @@
                     <p class="text-2xl font-semibold text-gray-900">{{ $publishedCount }}</p>
                 </dd>
             </div>
+            <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
+                <dt>
+                    <div class="absolute rounded-md bg-indigo-500 p-3">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="ml-16 truncate text-sm font-medium text-gray-500">Archived</p>
+                </dt>
+                <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
+                    <p class="text-2xl font-semibold text-gray-900">{{ $archivedCount }}</p>
+                </dd>
+            </div>
         </dl>
     </div>
 

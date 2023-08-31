@@ -20,7 +20,7 @@
 
                     <a :class="{ 'border-indigo-500 text-indigo-600': tab === 'second' }"
                         class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-md text-gray-900" href="#"
-                        @click.prevent="tab = 'second'">Posts
+                        @click.prevent="tab = 'second'"> Posts
                         <span
                             class="bg-gray-100 text-gray-900 ml-3 hidden rounded-full py-0.5 px-2.5 text-xs font-medium md:inline-block">{{
                             $posts->count() }}</span>
