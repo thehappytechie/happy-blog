@@ -7,6 +7,6 @@
             clip-rule="evenodd" />
     </svg>
     <input id="search-field"
-        class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+        class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 sm:text-sm focus:outline-none"
         placeholder="Search..." type="search" name="search">
 </form>

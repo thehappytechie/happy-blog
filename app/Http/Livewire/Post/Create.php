@@ -53,7 +53,7 @@ class Create extends Component
         }
         Post::create($validatedData);
         session()->flash('success', 'Post added successfully.');
-        return redirect()->route('dashboard');
+        return redirect()->route('post.index');
     }
 
     public function render()

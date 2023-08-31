@@ -23,6 +23,10 @@
         notyf.error('{{ session('error') }}');
     @endif
 
+    @if (session('custom'))
+        notyf.error('{{ session('custom') }}');
+    @endif
+
     @if (session('status') == 'two-factor-authentication-enabled')
         notyf.success('Two factor authentication has been enabled.');
     @endif

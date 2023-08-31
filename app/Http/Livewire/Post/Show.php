@@ -14,7 +14,7 @@ class Show extends Component
         $this->post = $post;
     }
 
-        public function incrementViewCount()
+    public function incrementViewCount()
     {
         $this->post->increment('views');
         $this->post->refresh();

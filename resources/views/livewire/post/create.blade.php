@@ -7,9 +7,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 @endpush
 
-<div>
+<div class="md:w-9/12 w-full">
     <div class="py-4 mt-2">
-
         <a href="{{ route('post.index') }}"
             class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-indigo-800 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -50,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
+            <div class="grid gap-5 grid-cols-3 md:grid-cols-3 mt-8">
                 <div>
                     <x-select name="category_id" label="Category">
                         <option value="">Select category</option>
@@ -74,8 +73,6 @@
                         <input type="text" name="tag" id="tag" class="input__field">
                     </div>
                 </div>
-            </div>
-            <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-8">
                 <div>
                     <label for="published_at" class="block text-sm font-medium leading-6 text-gray-800">Published date
                         <span class="text-pink-600 text-xs">*</span></label>
@@ -87,7 +84,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="grid grid-cols-2 md:grid-cols-2 mt-8">
                 <x-filepond.create-upload>
                     </x-create-filepond-upload>

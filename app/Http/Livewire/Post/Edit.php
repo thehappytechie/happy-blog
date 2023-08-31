@@ -59,19 +59,20 @@ class Edit extends Component
         return redirect()->route('dashboard');
     }
 
-    public function draft()
+    public function publishDraft()
     {
         $this->post->update(['is_draft' => 0]);
-        return redirect()->route('dashboard');
+        session()->flash('success', 'Post published successfully.');
+        return redirect()->route('post.index');
     }
 
-    public function archive()
+    public function publishArchive()
     {
         $this->post->update([
             'is_archived' => !$this->post->is_archived
         ]);
-
-        return redirect()->route('dashboard');
+        session()->flash('success', 'Post updated successfully.');
+        return redirect()->route('post.index');
     }
 
     public function render()

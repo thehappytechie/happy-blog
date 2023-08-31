@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Post;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Validation\Rules\Password;
 
@@ -70,6 +72,7 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.user.show');
+        $posts = Post::where('user_id','=',Auth::user()->id)->get();
+        return view('livewire.user.show',compact('posts'));
     }
 }

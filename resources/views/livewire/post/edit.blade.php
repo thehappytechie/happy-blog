@@ -21,12 +21,6 @@
 
         <x-page-heading pageHeading="Edit Post" />
 
-        <style>
-            .filepond--credits {
-                display: none;
-            }
-        </style>
-
         @if ($post->is_archived == 1)
         <x-warning-box bgColor="bg-yellow-50" iconColor="text-yellow-400"
             iconPath="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z">
@@ -40,7 +34,7 @@
                 <p class="text-sm text-orange-700">This post is a draft. Publish this post by clicking the ‘Publish’
                     button, the post will be published immediately.</p>
                 <p class="mt-3 text-sm md:ml-6 md:mt-0">
-                    <button type="button" wire:click.prevent="draft"
+                    <button type="button" wire:click.prevent="publishDraft"
                         class="whitespace-nowrap font-semibold text-orange-700 hover:text-orange-600">Publish</button>
                 </p>
             </div>
@@ -116,7 +110,7 @@
                     Save changes
                 </x-button>
                 @if ($post->is_draft != 1)
-                <x-button action="archive"
+                <x-button action="publishArchive"
                     class="rounded-md bg-gray-50 mt-5 ml-4 px-3.5 py-2.5 text-sm font-semibold text-gray-600 border border-gray-600 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     {{ $post->is_archived == 0 ? 'Archive post' : 'Unarchive post' }}
                 </x-button>
