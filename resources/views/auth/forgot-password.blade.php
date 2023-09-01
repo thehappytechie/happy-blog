@@ -35,9 +35,12 @@
             </div>
         </div>
     </div>
-    <div class="absolute right-2 bottom-2">
-        <p class="text-xs">Photo by <a href="https://unsplash.com/photos/mk7D-4UCfmg" class="underline">Florian
-                Klauer</a></p>
+    <div class="w-1/2 shadow-xl">
+        <img class="hidden object-cover w-full h-screen md:block" src="{{ asset('images/hero.jpg') }}" />
+        <div class="absolute right-2 bottom-2">
+            <p class="text-xs">Photo by <a href="https://unsplash.com/photos/mk7D-4UCfmg" class="underline">Florian
+                    Klauer</a></p>
+        </div>
     </div>
 </div>
 
