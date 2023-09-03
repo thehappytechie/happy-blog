@@ -17,10 +17,6 @@ use App\Http\Controllers\PageController;
 
 Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
     Route::controller(PageController::class)->group(function () {
         Route::get('home', 'home')
             ->name('home');

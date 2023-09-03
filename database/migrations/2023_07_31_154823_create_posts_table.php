@@ -27,6 +27,7 @@ return new class extends Migration
                 ->onDelete('cascade')->nullable();
             $table->string('feature_image')->nullable();
             $table->integer('views')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

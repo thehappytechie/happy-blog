@@ -2,7 +2,7 @@
     <ol role="list" class="flex items-center space-x-2">
         <li>
             <div>
-                <a href="#" class="text-gray-500 hover:text-gray-00">
+                <a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-gray-00">
                     <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path fill="currentColor" fill-opacity=".15"
                             d="m512.1 172.6l-370 369.7h96V868H392V640c0-22.1 17.9-40 40-40h160c22.1 0 40 17.9 40 40v228h153.9V542.3H882L535.2 195.7l-23.1-23.1zm434.5 422.9c-6 6-13.1 10.8-20.8 13.9c7.7-3.2 14.8-7.9 20.8-13.9zm-887-34.7c5 30.3 31.4 53.5 63.1 53.5h.9c-31.9 0-58.9-23-64-53.5zm-.9-10.5v-1.9v1.9zm.1-2.6c.1-3.1.5-6.1 1-9.1c-.6 2.9-.9 6-1 9.1z" />

@@ -1,4 +1,4 @@
-<div>
+<div class="md:w-9/12 w-full">
     <div class="py-4 mt-2">
 
         <a href="{{ route('user.index') }}"
