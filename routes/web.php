@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login']
 
     Route::get('posts/create', \App\Http\Livewire\Post\Create::class)->name('post.create');
     Route::get('posts/{post}/edit', \App\Http\Livewire\Post\Edit::class)->name('post.edit');
-    Route::get('posts/show/{post}', \App\Http\Livewire\Post\Show::class)->name('post.show');
+    Route::get('posts/show/{slug}', \App\Http\Livewire\Post\Show::class)->name('post.show');
     Route::get('posts/index', \App\Http\Livewire\Post\Index::class)->name('post.index');
     Route::get('blogs/index', \App\Http\Livewire\Blog\Index::class)->name('blog.index');
 

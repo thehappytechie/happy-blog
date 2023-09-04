@@ -21,6 +21,11 @@ class Post extends Model implements Auditable
         'likes',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function excerpt()
     {
         return Str::words($this->contents, 50);

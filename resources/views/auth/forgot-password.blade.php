@@ -10,12 +10,12 @@
             </a>
         </div>
         <div class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
-            <p class="text-4xl text-center font-heading mb-2">
+            <p class="text-center font-heading mb-2 sm:text-4xl text-3xl">
                 Forgot Password
             </p>
             <p class="text-gray-500">Please enter your email and we’ll send you a recovery link to reset your password
             </p>
-            <form action="{{ route('password.request') }}" method="POST" class="flex flex-col md:pt-8">
+            <form action="{{ route('password.request') }}" method="POST" class="flex flex-col pt-8">
                 @csrf
                 <div class="mb-8">
                     <x-input-field type="email" name="email" label="Email" />
@@ -37,7 +37,7 @@
     </div>
     <div class="w-1/2 shadow-xl">
         <img class="hidden object-cover w-full h-screen md:block" src="{{ asset('images/hero.jpg') }}" />
-        <div class="absolute right-2 bottom-2">
+        <div class="absolute right-2 bottom-2 sm:block hidden">
             <p class="text-xs">Photo by <a href="https://unsplash.com/photos/mk7D-4UCfmg" class="underline">Florian
                     Klauer</a></p>
         </div>

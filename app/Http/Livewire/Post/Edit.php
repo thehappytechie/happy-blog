@@ -56,7 +56,8 @@ class Edit extends Component
             $validatedData['feature_image'] = $this->feature_image->store('photos', 'public');
         }
         $this->post->update($validatedData);
-        return redirect()->route('dashboard');
+        session()->flash('success', 'Post updated successfully.');
+        return redirect()->route('post.index');
     }
 
     public function publishDraft()

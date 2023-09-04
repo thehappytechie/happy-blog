@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
-            <p class="text-4xl text-center font-heading mb-2">
+            <p class="text-center font-heading mb-2 sm:text-4xl text-3xl">
                 Sign Up
             </p>
             <p class="text-gray-500 text-center"> Create an account or <a href="{{ route('login') }}"
@@ -18,7 +18,7 @@
                     Login
                 </a>
             </p>
-            <form action="{{ route('register') }}" method="POST" class="flex flex-col md:pt-8">
+            <form action="{{ route('register') }}" method="POST" class="flex flex-col pt-8">
                 @csrf
                 <div>
                     <x-input-field type="name" name="name" label="Full name" />
@@ -34,9 +34,8 @@
                         label="Confirm password" />
                 </div>
                 <p class="text-sm mb-8 text-gray-500 mt-4">By creating an account, you agree to our <a href="http://"
-                        class="font-medium underline text-blue-800 hover:text-blue-600">Terms</a> and have read and
-                    acknowledge the <a href="http://" class="font-medium underline text-blue-800 hover:text-blue-600">
-                        Global Privacy Statement</a>.</p>
+                        class="font-medium underline text-blue-800 hover:text-blue-600">Terms</a> and
+                    acknowledge the <a href="http://" class="font-medium underline text-blue-800 hover:text-blue-600">Privacy Statement</a></p>
                 <button type="submit"
                     class="w-full rounded-md px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-black shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2">
                     Submit
@@ -46,7 +45,7 @@
     </div>
     <div class="w-1/2 shadow-xl">
         <img class="hidden object-cover w-full h-screen md:block" src="{{ asset('images/hero.jpg') }}" />
-        <div class="absolute right-2 bottom-2">
+        <div class="absolute right-2 bottom-2 sm:block hidden">
             <p class="text-xs">Photo by <a href="https://unsplash.com/photos/mk7D-4UCfmg" class="underline">Florian
                     Klauer</a></p>
         </div>
