@@ -15,12 +15,12 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
+Route::controller(PageController::class)->group(function () {
+    Route::get('home', 'home')
+        ->name('home');
+});
 
-    Route::controller(PageController::class)->group(function () {
-        Route::get('home', 'home')
-            ->name('home');
-    });
+Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
 
     Route::get('dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
 
