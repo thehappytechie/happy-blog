@@ -20,6 +20,11 @@ Route::controller(PageController::class)->group(function () {
         ->name('home');
 });
 
+Route::get('posts/all', \App\Http\Livewire\Post\Articles::class)->name('post.all');
+Route::get('about', \App\Http\Livewire\Post\About::class)->name('post.about');
+
+
+
 Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
 
     Route::get('dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
