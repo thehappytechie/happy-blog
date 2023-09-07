@@ -8,16 +8,14 @@
         @foreach ($category->posts as $post)
         <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
             <div class="flex-shrink-0">
-                <img class="h-48 w-full object-cover"
-                    src="{{ url('storage/'.$post->feature_image.'') }}"
-                    alt="">
+                <img class="h-48 w-full object-cover" src="{{ url('storage/'.$post->feature_image.'') }}" alt="">
             </div>
             <div class="flex flex-1 flex-col justify-between bg-white p-6">
                 <div class="flex-1">
                     <p class="text-sm font-medium text-indigo-600">
                         <a href="#" class="hover:underline">{{ ucfirst($category->name) }}</a>
                     </p>
-                    <a href="{{ route('post.show', $post->slug) }}" class="mt-2 block">
+                    <a href="{{ route('post.view', $post->slug) }}" class="mt-2 block">
                         <p class="text-xl font-semibold text-gray-900">{{ $post->title }}</p>
                         <p class="mt-3 text-base text-gray-500">@markdown($post->shortExcerpt())</p>
                     </a>
@@ -25,7 +23,7 @@
                 <div class="mt-6 flex items-center">
                     <div class="flex-shrink-0">
                         <a href="#">
-                            <span class="sr-only">Roel Aufderehar</span>
+                            <span class="sr-only">{{ $post->user->name }}</span>
                             <img class="h-10 w-10 rounded-full"
                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                 alt="">
