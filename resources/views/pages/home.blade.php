@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-           <x-public.mobile-navigation></x-public.mobile-navigation>
+            <x-public.mobile-navigation></x-public.mobile-navigation>
 
         </div>
 
@@ -345,38 +345,17 @@
                     find what you're looking for</p>
             </div>
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
-                    <div class="bg-gray-400/5 p-8 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor"
-                            width="158" height="48">
-                    </div>
-                    <div class="bg-gray-400/5 p-6 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform"
-                            width="158" height="48">
-                    </div>
-                    <div class="bg-gray-400/5 p-6 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple"
-                            width="158" height="48">
-                    </div>
-                    <div class="bg-gray-400/5 p-6 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/laravel-logo-gray-900.svg" alt="Laravel"
-                            width="158" height="48">
-                    </div>
-                    <div class="bg-gray-400/5 p-6 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal"
-                            width="158" height="48">
-                    </div>
-                    <div class="bg-gray-400/5 p-6 sm:p-10">
-                        <img class="max-h-12 w-full object-contain"
-                            src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic"
-                            width="158" height="48">
-                    </div>
-                </div>
+                <fieldset>
+                    <ul class="flex flex-wrap gap-3 js-choice-tags">
+                        @foreach ( $categories as $category )
+                        <li>
+                            <a href="{{ route('category.show',$category->name) }}"><span
+                                    class="inline-flex items-center rounded-full bg-red-50 px-5 py-2 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-600/10">{{
+                                    ucfirst($category->name) }}</span></a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </fieldset>
             </div>
         </div>
 

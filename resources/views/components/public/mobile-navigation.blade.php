@@ -24,27 +24,26 @@
             </div>
             <div class="mt-6">
                 <nav class="grid gap-y-4">
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Laravel</a>
                     <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Technology</a>
+                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500">Laravel</a>
                     <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Tips</a>
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500">Design</a>
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Docs</a>
+                    <a href="{{ route('post.all') }}" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">All
+                        Articles</a>
                 </nav>
             </div>
         </div>
         <div class="space-y-6 px-5 py-6">
             <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+                <a href="{{ route('post.about') }}"
+                    class="text-base font-medium text-gray-900 hover:text-gray-700">About</a>
                 <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Contribute</a>
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Contact</a>
+                <a href="mailto:hello@thehappytechie.com"
+                    class="text-base font-medium text-gray-900 hover:text-gray-700">Contact</a>
+                <a href="{{ route('login') }}" class="text-base font-medium text-gray-900 hover:text-gray-700">Login</a>
             </div>
             <div>
                 <a href="#"
-                    class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign
-                    up</a>
-                <p class="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing customer?
-                    <a href="{{ route('login') }}" class="text-indigo-600 hover:text-indigo-500">Sign in</a>
-                </p>
+                    class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Join</a>
             </div>
         </div>
     </div>

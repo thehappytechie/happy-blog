@@ -15,9 +15,13 @@ class Category extends Model implements Auditable
 
     protected $guarded = ['id'];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
-
 }

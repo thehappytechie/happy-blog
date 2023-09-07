@@ -31,6 +31,11 @@ class Post extends Model implements Auditable
         return Str::words($this->contents, 50);
     }
 
+     public function shortExcerpt()
+    {
+        return Str::words($this->contents, 25);
+    }
+
     public function datePostPublished()
     {
         return Carbon::parse($this->published_at)->diffForHumans();

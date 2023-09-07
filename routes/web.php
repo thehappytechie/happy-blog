@@ -22,7 +22,7 @@ Route::controller(PageController::class)->group(function () {
 
 Route::get('posts/all', \App\Http\Livewire\Post\Articles::class)->name('post.all');
 Route::get('about', \App\Http\Livewire\Post\About::class)->name('post.about');
-
+Route::get('category/{category}', \App\Http\Livewire\Category\Posts::class)->name('category.show');
 
 
 Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
