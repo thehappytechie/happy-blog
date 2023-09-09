@@ -27,7 +27,7 @@
                     <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Technology</a>
                     <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500">Laravel</a>
                     <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Tips</a>
-                    <a href="{{ route('post.all') }}" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">All
+                    <a href="{{ route('post.articles') }}" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">All
                         Articles</a>
                 </nav>
             </div>
@@ -39,7 +39,7 @@
                 <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Contribute</a>
                 <a href="mailto:hello@thehappytechie.com"
                     class="text-base font-medium text-gray-900 hover:text-gray-700">Contact</a>
-                <a href="{{ route('login') }}" class="text-base font-medium text-gray-900 hover:text-gray-700">Login</a>
+                <a href="{{ route('login') }}" target="_blank" class="text-base font-medium text-gray-900 hover:text-gray-700">Login</a>
             </div>
             <div>
                 <a href="#"

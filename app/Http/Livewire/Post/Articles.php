@@ -2,13 +2,20 @@
 
 namespace App\Http\Livewire\Post;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class Articles extends Component
 {
-    public function render()
+    public $posts;
+
+    public function mount()
     {
-        return view('livewire.post.articles')
+        $this->posts = Post::all();
+    }
+
+    public function render()
+    {        return view('livewire.post.articles')
             ->layout('layouts.public');
     }
 }

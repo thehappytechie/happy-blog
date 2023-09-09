@@ -122,33 +122,30 @@
             </div>
             <div class="relative mx-auto max-w-7xl">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recent blog posts</h2>
-                    <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Lorem ipsum dolor sit amet
-                        consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recent posts</h2>
                 </div>
                 <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+                    @foreach ($posts as $post)
                     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                         <div class="flex-shrink-0">
-                            <img class="h-48 w-full object-cover"
-                                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                            <img class="h-48 w-full object-cover" src="{{ url('storage/'.$post->feature_image.'') }}"
                                 alt="">
                         </div>
                         <div class="flex flex-1 flex-col justify-between bg-white p-6">
                             <div class="flex-1">
                                 <p class="text-sm font-medium text-indigo-600">
-                                    <a href="#" class="hover:underline">Article</a>
+                                    <a href="{{ route('category.show',$post->category->name) }}"
+                                        class="hover:underline">{{ ucfirst($post->category->name) }}</a>
                                 </p>
-                                <a href="#" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900">Boost your conversion rate</p>
-                                    <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa,
-                                        similique sequi cum eos quis dolorum.</p>
+                                <a href="{{ route('post.view',$post->slug) }}" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900">{{ $post->title }}</p>
+                                    <p class="mt-3 text-base text-gray-500">@markdown($post->shortExcerpt())</p>
                                 </a>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <div class="flex-shrink-0">
-                                    <a href="#">
-                                        <span class="sr-only">Roel Aufderehar</span>
+                                    <a href="{{ route('post.author', $post->user->id) }}">
+                                        <span class="sr-only">{{ ucfirst($post->user->name) }}</span>
                                         <img class="h-10 w-10 rounded-full"
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                             alt="">
@@ -156,10 +153,12 @@
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">Roel Aufderehar</a>
+                                        <a href="{{ route('post.author', $post->user->id) }}" class="hover:underline">{{
+                                            ucfirst($post->user->name) }}</a>
                                     </p>
                                     <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2020-03-16">Mar 16, 2020</time>
+                                        <time datetime="{{ $post->created_at->toFormattedDateString() }}">{{
+                                            $post->created_at->toFormattedDateString() }}</time>
                                         <span aria-hidden="true">&middot;</span>
                                         <span>6 min read</span>
                                     </div>
@@ -167,88 +166,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <img class="h-48 w-full object-cover"
-                                src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                                alt="">
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600">
-                                    <a href="#" class="hover:underline">Video</a>
-                                </p>
-                                <a href="#" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900">How to use search engine optimization
-                                        to drive sales</p>
-                                    <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet
-                                        dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo
-                                        laudantium.</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a href="#">
-                                        <span class="sr-only">Brenna Goyette</span>
-                                        <img class="h-10 w-10 rounded-full"
-                                            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                            alt="">
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">Brenna Goyette</a>
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2020-03-10">Mar 10, 2020</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>4 min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <img class="h-48 w-full object-cover"
-                                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                                alt="">
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600">
-                                    <a href="#" class="hover:underline">Case Study</a>
-                                </p>
-                                <a href="#" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900">Improve your customer experience</p>
-                                    <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe
-                                        molestiae, sed excepturi cumque corporis perferendis hic.</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a href="#">
-                                        <span class="sr-only">Daniela Metz</span>
-                                        <img class="h-10 w-10 rounded-full"
-                                            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                            alt="">
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">Daniela Metz</a>
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2020-02-12">Feb 12, 2020</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>11 min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -260,24 +178,25 @@
             </div>
             <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
                 <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-                    <time datetime="2020-03-16" class="block text-sm leading-6 text-gray-600">Mar 16, 2020</time>
+                    <time datetime="2020-03-16" class="block text-sm leading-6 text-gray-600">{{
+                        $post->created_at->toFormattedDateString() }}</time>
                     <h2 id="featured-post" class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        We’re incredibly proud to announce we have secured $75m in Series B</h2>
-                    <p class="mt-4 text-lg leading-8 text-gray-600">Libero neque aenean tincidunt nec consequat tempor.
-                        Viverra odio id velit adipiscing id. Nisi vestibulum orci eget bibendum dictum. Velit viverra
-                        posuere vulputate volutpat nunc. Nunc netus sit faucibus.</p>
+                        {{ $postView->title }}</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-600">@markdown($post->shortExcerpt())</p>
                     <div
                         class="mt-4 flex flex-col justify-between gap-6 sm:mt-8 sm:flex-row-reverse sm:gap-8 lg:mt-4 lg:flex-col">
                         <div class="flex">
-                            <a href="#" class="text-sm font-semibold leading-6 text-indigo-600"
+                            <a href="{{ route('post.view',$post->slug) }}"
+                                class="text-sm font-semibold leading-6 text-indigo-600"
                                 aria-describedby="featured-post">Continue reading <span
                                     aria-hidden="true">&rarr;</span></a>
                         </div>
                         <div class="flex lg:border-t lg:border-gray-900/10 lg:pt-8">
-                            <a href="#" class="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
+                            <a href="{{ route('post.author', $post->user->id) }}"
+                                class="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
                                 <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                     alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                Michael Foster
+                                {{ $post->user->name }}
                             </a>
                         </div>
                     </div>
@@ -285,73 +204,52 @@
                 <div
                     class="mx-auto w-full max-w-2xl border-t border-gray-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
                     <div class="-my-12 divide-y divide-gray-900/10">
+                        @foreach ( $postViews as $postView )
                         <article class="py-12">
                             <div class="group relative max-w-xl">
-                                <time datetime="2020-03-16" class="block text-sm leading-6 text-gray-600">Mar 10,
-                                    2020</time>
+                                <time datetime="{{ $post->created_at->toFormattedDateString() }}"
+                                    class="block text-sm leading-6 text-gray-600">{{
+                                    $post->created_at->toFormattedDateString() }}</time>
                                 <h2 class="mt-2 text-lg font-semibold text-gray-900 group-hover:text-gray-600">
-                                    <a href="#">
+                                    <a href="{{ route('post.view',$post->slug) }}">
                                         <span class="absolute inset-0"></span>
-                                        Boost your conversion rate
+                                        {{ $postView->title }}
                                     </a>
                                 </h2>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates
-                                    culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde.
-                                    Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta
-                                    laboris incididunt.</p>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">@markdown($post->shortExcerpt())</p>
                             </div>
                             <div class="mt-4 flex">
-                                <a href="#"
+                                <a href="{{ route('post.author', $post->user->id) }}"
                                     class="relative flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
                                     <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                         alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                    Lindsay Walton
+                                    {{ $post->user->name }}
                                 </a>
                             </div>
                         </article>
-                        <article class="py-12">
-                            <div class="group relative max-w-xl">
-                                <time datetime="2020-03-16" class="block text-sm leading-6 text-gray-600">Mar 10,
-                                    2020</time>
-                                <h2 class="mt-2 text-lg font-semibold text-gray-900 group-hover:text-gray-600">
-                                    <a href="#">
-                                        <span class="absolute inset-0"></span>
-                                        Boost your conversion rate
-                                    </a>
-                                </h2>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates
-                                    culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde.
-                                    Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta
-                                    laboris incididunt.</p>
-                            </div>
-                            <div class="mt-4 flex">
-                                <a href="#"
-                                    class="relative flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
-                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                    Lindsay Walton
-                                </a>
-                            </div>
-                        </article>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white py-24 sm:py-32">
+        <div class="bg-white py-24 sm:py-24">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Explore</h2>
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Browse by category and we'll help you
                     find what you're looking for</p>
             </div>
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto w-7/12 px-6 lg:px-8">
                 <fieldset>
-                    <ul class="flex flex-wrap gap-3 js-choice-tags">
-                        @foreach ( $categories as $category )
+                    <ul class="flex flex-wrap gap-3">
+                        @foreach($categories as $category)
                         <li>
-                            <a href="{{ route('category.show',$category->name) }}"><span
-                                    class="inline-flex items-center rounded-full bg-red-50 px-5 py-2 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-600/10">{{
-                                    ucfirst($category->name) }}</span></a>
+                            <a href="{{ route('category.show',$category->name) }}">
+                                <span
+                                    class="inline-flex items-center gap-x-1.5 rounded-full bg-blue-100 px-5 py-2 text-sm font-medium text-blue-700">
+                                    {{ ucfirst($category->name) }}
+                                </span>
+                            </a>
                         </li>
                         @endforeach
                     </ul>
