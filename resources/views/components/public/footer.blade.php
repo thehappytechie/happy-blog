@@ -8,7 +8,8 @@
                         <h3 class="text-base font-medium text-gray-900">Explore</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900">About</a>
+                                <a href="{{ route('post.about') }}"
+                                    class="text-base text-gray-500 hover:text-gray-900">About</a>
                             </li>
                             <li>
                                 <a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a>
@@ -31,7 +32,7 @@
                                 <a href="#" class="text-base text-gray-500 hover:text-gray-900">Technology</a>
                             </li>
                             <li>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900">Design</a>
+                                <a href="{{ route('post.articles') }}" class="text-base text-gray-500 hover:text-gray-900">Blog</a>
                             </li>
                             <li>
                                 <a href="#" class="text-base text-gray-500 hover:text-gray-900">Web
@@ -59,11 +60,11 @@
             <form class="mt-4 sm:flex sm:max-w-md lg:mt-0">
                 <label for="email-address" class="sr-only">Email address</label>
                 <input type="email" name="email-address" id="email-address" autocomplete="email" required
-                    class="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 sm:max-w-xs"
+                    class="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 focus:border-orange-500 focus:placeholder-gray-400 focus:outline-none focus:ring-orange-500 sm:max-w-xs"
                     placeholder="Enter your email">
                 <div class="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:flex-shrink-0">
                     <button type="submit"
-                        class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Subscribe</button>
+                        class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white hover:bg-or-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Subscribe</button>
                 </div>
             </form>
         </div>
@@ -76,7 +77,7 @@
                             d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
                 </a>
-                <a href="https://github.com/Effulg" class="text-gray-400 hover:text-gray-500">
+                <a href="#" class="text-gray-400 hover:text-gray-500">
                     <span class="sr-only">GitHub</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"

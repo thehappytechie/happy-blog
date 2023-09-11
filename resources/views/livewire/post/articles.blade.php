@@ -12,7 +12,7 @@
             </div>
             <div class="flex flex-1 flex-col justify-between bg-white p-6">
                 <div class="flex-1">
-                    <p class="text-sm font-medium text-indigo-600">
+                    <p class="text-sm font-medium text-orange-600">
                         <a href="{{ route('category.show',$post->category->name) }}" class="hover:underline">{{ ucfirst($post->category->name) }}</a>
                     </p>
                     <a href="{{ route('post.view',$post->slug) }}" class="mt-2 block">
