@@ -87,7 +87,7 @@
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recent posts</h2>
                 </div>
                 <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-                    @foreach ($posts as $post)
+                    @forelse ($posts as $post)
                     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                         <div class="flex-shrink-0">
                             <img class="h-48 w-full object-cover" src="{{ url('storage/'.$post->feature_image.'') }}"
@@ -128,7 +128,10 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <p class="text-center text-xl font-medium text-gray-400">No posts available, write something great!
+                    </p>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -139,58 +142,70 @@
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Browse all the most read posts</p>
             </div>
             <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
+                @if ($popularFeaturedPost != 0)
                 <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-                    <time datetime="{{ $postView->created_at->toFormattedDateString() }}"
-                        class="block text-sm leading-6 text-gray-600">{{
-                        $postView->created_at->toFormattedDateString() }}</time>
+                    <time datetime="{{ $popularFeaturedPost->created_at->toFormattedDateString() }}"
+                        class="block text-sm leading-6 text-gray-600">
+                        {{ $popularFeaturedPost->created_at->toFormattedDateString() }}
+                    </time>
                     <h2 id="featured-post" class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        {{ $postView->title }}</h2>
-                    <p class="mt-4 text-lg leading-8 text-gray-600">@markdown($post->shortExcerpt())</p>
+                        {{ $popularFeaturedPost->title }}
+                    </h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-600">
+                        @markdown($popularFeaturedPost->shortExcerpt())
+                    </p>
                     <div
                         class="mt-4 flex flex-col justify-between gap-6 sm:mt-8 sm:flex-row-reverse sm:gap-8 lg:mt-4 lg:flex-col">
                         <div class="flex">
-                            <a href="{{ route('post.view',$post->slug) }}"
+                            <a href="{{ route('post.view',$popularFeaturedPost->slug) }}"
                                 class="text-sm font-semibold leading-6 text-orange-600"
-                                aria-describedby="featured-post">Continue reading <span
-                                    aria-hidden="true">&rarr;</span></a>
+                                aria-describedby="featured-post">
+                                Continue reading <span aria-hidden="true">→</span>
+                            </a>
                         </div>
                         <div class="flex lg:border-t lg:border-gray-900/10 lg:pt-8">
-                            <a href="{{ route('post.author', $post->user->id) }}"
+                            <a href="{{ route('post.author', $popularFeaturedPost->user->id) }}"
                                 class="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
-                                <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($post->user->name) }}"
+                                <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($popularFeaturedPost->user->name) }}"
                                     alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                {{ $post->user->name }}
+                                {{ $popularFeaturedPost->user->name }}
                             </a>
                         </div>
                     </div>
                 </article>
+                @endif
+
                 <div
                     class="mx-auto w-full max-w-2xl border-t border-gray-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
                     <div class="-my-12 divide-y divide-gray-900/10">
-                        @foreach ( $postViews as $postView )
+                        @forelse ($featuredPosts as $featuredPost)
                         <article class="py-12">
                             <div class="group relative max-w-xl">
-                                <time datetime="{{ $postView->created_at->toFormattedDateString() }}"
+                                <time datetime="{{ $featuredPost->created_at->toFormattedDateString() }}"
                                     class="block text-sm leading-6 text-gray-600">{{
-                                    $postView->created_at->toFormattedDateString() }}</time>
+                                    $featuredPost->created_at->toFormattedDateString() }}</time>
                                 <h2 class="mt-2 text-lg font-semibold text-gray-900 group-hover:text-gray-600">
-                                    <a href="{{ route('post.view',$postView->slug) }}">
+                                    <a href="{{ route('post.view',$featuredPost->slug) }}">
                                         <span class="absolute inset-0"></span>
-                                        {{ $postView->title }}
+                                        {{ $featuredPost->title }}
                                     </a>
                                 </h2>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">@markdown($postView->shortExcerpt())</p>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">@markdown($featuredPost->shortExcerpt())
+                                </p>
                             </div>
                             <div class="mt-4 flex">
-                                <a href="{{ route('post.author', $postView->user->id) }}"
+                                <a href="{{ route('post.author', $featuredPost->user->id) }}"
                                     class="relative flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
-                                    <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($postView->user->name) }}"
+                                    <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($featuredPost->user->name) }}"
                                         alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                    {{ $postView->user->name }}
+                                    {{ $featuredPost->user->name }}
                                 </a>
                             </div>
                         </article>
-                        @endforeach
+                        @empty
+                        <p class="text-xl font-medium text-gray-400 mt-14">No posts available, write something
+                            great!</p>
+                        @endforelse
                     </div>
                 </div>
             </div>

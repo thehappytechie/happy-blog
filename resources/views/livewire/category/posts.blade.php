@@ -5,7 +5,7 @@
             </h2>
             <p class="mt-2 text-lg leading-8 text-gray-600">Explore the limitless possibilities of web development and technology with us!
             </p>
-            @foreach ($category->posts as $post)
+            @forelse ($category->posts as $post)
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
                 <article class="relative isolate flex flex-col gap-8 lg:flex-row">
                     <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
@@ -48,7 +48,7 @@
                     </div>
                 </article>
             </div>
-            @endforeach
+            @endforelse
         </div>
     </div>
 

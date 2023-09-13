@@ -12,8 +12,8 @@ class PageController extends Controller
     {
         $categories = Category::get(['id', 'name']);
         $posts = Post::latest()->take(6)->get();
-        $postView = Post::orderBy('views', 'desc')->first();
-        $postViews = Post::orderBy('views', 'desc')->skip(1)->take(2)->get();
-        return view('pages.home', compact('categories', 'posts', 'postView','postViews'));
+        $popularFeaturedPost = Post::orderBy('views', 'desc')->first();
+        $featuredPosts = Post::orderBy('views', 'desc')->skip(1)->take(2)->get();
+        return view('pages.home', compact('categories', 'posts', 'popularFeaturedPost','featuredPosts'));
     }
 }
