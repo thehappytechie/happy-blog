@@ -1,4 +1,4 @@
-<div class="py-4 mt-2">
+<div class="py-4 mb-8">
 
     <x-page-heading pageHeading="Update Password" />
 
@@ -55,10 +55,9 @@
         </div>
 
         <div class="py-4">
-            <button type="button" wire:click.prevent="save"
-                class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <x-button action="save">
                 Save changes
-            </button>
+            </x-button>
         </div>
     </form>
 

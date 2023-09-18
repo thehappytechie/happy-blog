@@ -23,8 +23,7 @@
                 <h3 class="text-lg font-semibold leading-6 text-gray-700" id="modal-title">Delete category?
                 </h3>
                 <div class="mt-2">
-                    <p class="text-sm text-gray-500">Are you sure you want to delete <strong class="font-medium text-gray-700">{{
-                            $category->name }}</strong>? All data
+                    <p class="text-sm text-gray-500">Are you sure you want to delete <strong class="font-medium text-gray-700">{{ $category->name }}</strong>? All data
                         will be permanently removed. This action cannot be undone.</p>
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateProfile extends Component
 {
@@ -36,7 +37,7 @@ class UpdateProfile extends Component
         );
         $this->user->update($validatedData);
         session()->flash('success', 'Profile updated successfully.');
-        return redirect()->route('dashboard');
+        return redirect()->route('user.update.profile', Auth::user()->id);
     }
 
     public function render()

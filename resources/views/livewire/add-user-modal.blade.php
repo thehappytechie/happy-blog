@@ -35,7 +35,7 @@
                 </div>
                 <div>
                     <button type="button" wire:click="generatePassword"
-                        class="inline-flex items-center gap-x-1 rounded-md border border-gray-600 px-2 py-1 text-xs text-gray-800 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="inline-flex items-center gap-x-1 rounded-md border border-gray-600 px-2 py-1 text-xs text-gray-800 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                         <svg class="-ml-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,14 +47,14 @@
             </div>
             <div class="flex items-center my-6">
                 <input id="disable_login" type="checkbox" wire:model="disable_login"
-                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    class="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500">
                 <label for="disable_login" class="ml-2 block text-sm text-gray-500">Disable login</label>
             </div>
         </form>
     </div>
     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
         <button wire:click.prevent="save"
-            class="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-700 ml-4 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">Save</button>
+            class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-700 ml-4 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Save</button>
         <button wire:click.prevent="$emit('closeModal')"
             class="inline-flex items-center rounded-md bg-white px-5 py-2 text-xs font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Close</button>
     </div>

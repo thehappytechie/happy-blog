@@ -1,8 +1,8 @@
 <div class="md:w-9/12 w-full">
-    <div class="py-4 mt-2">
+    <div class="py-4 mb-8">
 
         <a href="{{ route('user.index') }}"
-            class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-indigo-800 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-orange-600 hover:text-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
             <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -24,7 +24,7 @@
                         </svg>
                     </div>
                     <div class="ml-3 flex-1 md:flex md:justify-between">
-                        <p class="text-sm text-orange-700">An email with the account credentials is sent
+                        <p class="text-sm text-orange-700">An email with credentials is sent
                             to the user to change their password on first time login.</p>
                     </div>
                 </div>
@@ -99,9 +99,6 @@
                             @endforeach
                         </select>
                     </div>
-                    @error($selectedPermissions)
-                    <x-validation-message> {{ $message }} </x-validation-message>
-                    @enderror
                 </div>
             </div>
             <div class="py-4">
@@ -110,9 +107,7 @@
                     Create
                 </x-button>
             </div>
-
         </form>
 
     </div>
-
 </div>

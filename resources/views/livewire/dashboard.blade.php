@@ -1,4 +1,4 @@
-<div class="py-4 mt-2">
+<div class="py-4 mb-8">
 
     <x-page-heading pageHeading="Dashboard" />
 
@@ -9,7 +9,7 @@
             <div class="flex items-center">
                 <div>
                     <div class="flex items-center">
-                        <h1 class="ml-3 text-xl font-semibold leading-7 text-gray-800 sm:truncate sm:leading-9">
+                        <h1 class="ml-3 text-xl font-semibold leading-7 text-gray-700 sm:truncate sm:leading-9">
                             Howdy 👋 {{ Auth::user()->name }},</h1>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                     class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Add
                     post</button></a>
             <button type="button"
-                class="inline-flex items-center rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">View
-                all post</button>
+                class="inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">View
+                posts</button>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
         <dl class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
-                    <div class="absolute rounded-md bg-indigo-500 p-3">
+                    <div class="absolute rounded-md bg-blue-500 p-3">
                         <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,12 +39,12 @@
                     <p class="ml-16 truncate text-sm font-medium text-gray-500">Posts</p>
                 </dt>
                 <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-                    <p class="text-2xl font-semibold text-gray-900">{{ $postCount }}</p>
+                    <p class="text-2xl font-semibold text-gray-700">{{ $postCount }}</p>
                 </dd>
             </div>
             <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
-                    <div class="absolute rounded-md bg-indigo-500 p-3">
+                    <div class="absolute rounded-md bg-blue-500 p-3">
                         <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -54,12 +54,12 @@
                     <p class="ml-16 truncate text-sm font-medium text-gray-500">Draft</p>
                 </dt>
                 <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-                    <p class="text-2xl font-semibold text-gray-900">{{ $draftCount }}</p>
+                    <p class="text-2xl font-semibold text-gray-700">{{ $draftCount }}</p>
                 </dd>
             </div>
             <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
-                    <div class="absolute rounded-md bg-indigo-500 p-3">
+                    <div class="absolute rounded-md bg-blue-500 p-3">
                         <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -69,12 +69,12 @@
                     <p class="ml-16 truncate text-sm font-medium text-gray-500">Published</p>
                 </dt>
                 <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-                    <p class="text-2xl font-semibold text-gray-900">{{ $publishedCount }}</p>
+                    <p class="text-2xl font-semibold text-gray-700">{{ $publishedCount }}</p>
                 </dd>
             </div>
             <div class="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
                 <dt>
-                    <div class="absolute rounded-md bg-indigo-500 p-3">
+                    <div class="absolute rounded-md bg-blue-500 p-3">
                         <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -83,7 +83,7 @@
                     <p class="ml-16 truncate text-sm font-medium text-gray-500">Archived</p>
                 </dt>
                 <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-                    <p class="text-2xl font-semibold text-gray-900">{{ $archivedCount }}</p>
+                    <p class="text-2xl font-semibold text-gray-700">{{ $archivedCount }}</p>
                 </dd>
             </div>
         </dl>
@@ -102,16 +102,16 @@
                         <thead>
                             <tr>
                                 <th scope="col"
-                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-medium text-gray-900 sm:pl-0">Name of
+                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-medium text-gray-700 sm:pl-0">Name of
                                     author
                                 </th>
-                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Title &
+                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-700">Title &
                                     category
                                 </th>
-                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Post
+                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-700">Post
                                     status
                                 </th>
-                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-900">Date
+                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-medium text-gray-700">Date
                                     published
                                 </th>
                                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">

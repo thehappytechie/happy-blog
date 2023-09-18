@@ -47,6 +47,9 @@
                         </div>
                     </div>
                 </article>
+                @empty
+                <p class="text-lg font-medium text-gray-400 py-6">No posts available, write something great!
+                </p>
             </div>
             @endforelse
         </div>

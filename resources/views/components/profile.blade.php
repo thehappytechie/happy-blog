@@ -2,7 +2,7 @@
     <button @click="open = ! open"> <span class="flex items-center lg:flex lg:items-center mt-1.5">
             <span class="sr-only">Open user menu</span>
             <img class="h-6 w-6 rounded-full bg-gray-50"
-                src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{ Auth::user()->name }}" alt="">
+                src="https://api.dicebear.com/6.x/big-ears-neutral/svg?seed={{ Auth::user()->name }}" alt="">
             <svg class="ml-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd"
                     d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"

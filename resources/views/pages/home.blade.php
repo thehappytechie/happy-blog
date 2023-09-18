@@ -36,11 +36,12 @@
             <div class="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-48 lg:text-left">
                 <div class="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
                     <div class="hidden sm:mb-5 sm:flex sm:justify-center lg:justify-start">
-                        <a href="#"
+                        @if ($popularFeaturedPost != 0)
+                        <a href="{{ route('post.view',$popularFeaturedPost->slug) }}"
                             class="flex items-center rounded-full bg-black p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base">
                             <span
-                                class="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Latest</span>
-                            <span class="ml-4 text-sm">Lets read it now</span>
+                                class="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Latest Post</span>
+                            <span class="ml-4 text-sm">{{ $popularFeaturedPost->title }}</span>
                             <svg class="ml-2 h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -48,20 +49,20 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
+                        @endif
                     </div>
                     <h1
                         class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                        <span class="block xl:inline">Thoughts & ideas</span>
-                        <span class="block text-orange-600 xl:inline">around the things that matter</span>
+                        <span class="block xl:inline font-heading">Thoughts & ideas</span>
+                        <span class="block text-orange-600 xl:inline font-heading">around the things that matter</span>
                     </h1>
                     <p class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">Stay up
                         to date with the latest trends and gain a competitive edge with our expert insights on
-                        cybersecurity, software development, data analytics, and more.</p>
+                        cybersecurity, web development, and more.</p>
                     <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div class="rounded-md shadow">
-                            <a href="#"
-                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 md:px-10 md:py-4 md:text-lg">Latest
-                                News</a>
+                            <a href="{{ route('post.articles') }}"
+                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 md:px-10 md:py-4 md:text-lg">All Posts</a>
                         </div>
                         <div class="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
                             <a href="{{ route('post.about') }}"
@@ -129,7 +130,7 @@
                         </div>
                     </div>
                     @empty
-                    <p class="text-center text-xl font-medium text-gray-400">No posts available, write something great!
+                    <p class="text-center text-lg font-medium text-gray-400">No posts available, write something great!
                     </p>
                     @endforelse
                 </div>
@@ -203,7 +204,7 @@
                             </div>
                         </article>
                         @empty
-                        <p class="text-xl font-medium text-gray-400 mt-14">No posts available, write something
+                        <p class="text-lg font-medium text-gray-400 mt-14">No posts available, write something
                             great!</p>
                         @endforelse
                     </div>

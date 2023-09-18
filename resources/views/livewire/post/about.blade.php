@@ -4,7 +4,7 @@
         <div class="mx-auto max-w-max lg:max-w-7xl">
             <div class="relative mb-8 md:mb-2 md:px-6">
                 <div class="max-w-prose text-base lg:max-w-none">
-                    <h2 class="font-semibold leading-6 text-indigo-600">About</h2>
+                    <h2 class="font-semibold leading-6 text-orange-600">About</h2>
                     <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">See your ideas
                         come to life on the page and make a difference in the world.</p>
                 </div>
@@ -12,7 +12,7 @@
             <div class="relative">
                 <div class="relative md:bg-white md:p-6">
                     <div class="lg:grid lg:grid-cols-2 lg:gap-6">
-                        <div class="prose prose-lg prose-indigo text-gray-500 lg:max-w-none">
+                        <div class="prose prose-lg prose-orange text-gray-500 lg:max-w-none">
                             <p>We are passionate about all things tech and dedicated
                                 to helping you navigate the ever-evolving digital landscape with ease and confidence. We
                                 believe that technology is the driving force behind innovation and
@@ -25,7 +25,7 @@
                                 that simplifies complex concepts, making it easy for you to grasp even the most
                                 intricate details.</p>
                         </div>
-                        <div class="prose prose-lg prose-indigo mt-6 text-gray-500 lg:mt-0">
+                        <div class="prose prose-lg prose-orange mt-6 text-gray-500 lg:mt-0">
                             <p>Stay ahead of the curve with our regularly updated articles on the latest technological
                                 advancements. We break down the hottest trends and explore their impact on various
                                 industries.</p>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="mt-8 inline-flex rounded-md shadow">
                         <a href="#"
-                            class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Join
+                            class="flex items-center justify-center rounded-md border border-transparent bg-orange-600 px-5 py-3 text-base font-medium text-white hover:bg-orange-700">Join
                             our team</a>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         <div>
                             <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Gracey Alexander
                             </h3>
-                            <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+                            <p class="text-sm font-semibold leading-6 text-orange-600">Co-Founder / CEO</p>
                             <ul role="list" class="mt-2 flex gap-x-3">
                                 <li>
                                     <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -105,7 +105,7 @@
                         <div>
                             <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Marta Sobon
                             </h3>
-                            <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CTO</p>
+                            <p class="text-sm font-semibold leading-6 text-orange-600">Co-Founder / CTO</p>
                             <ul role="list" class="mt-2 flex gap-x-3">
                                 <li>
                                     <a href="#" class="text-gray-400 hover:text-gray-500">

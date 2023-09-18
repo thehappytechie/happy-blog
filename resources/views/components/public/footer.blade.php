@@ -94,7 +94,7 @@
                     </svg>
                 </a>
             </div>
-            <p class="mt-8 text-base text-gray-400 md:order-1 md:mt-0">&copy; {{ date('Y') }} The Happytechie.
+            <p class="mt-8 text-sm text-gray-400 md:order-1 md:mt-0">&copy; {{ date('Y') }} The Happytechie.
                 All rights
                 reserved.</p>
         </div>

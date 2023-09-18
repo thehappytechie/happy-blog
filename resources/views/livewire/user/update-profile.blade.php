@@ -1,5 +1,5 @@
 <div>
-    <div class="py-4 mt-2">
+    <div class="py-4 mb-8">
 
         <x-page-heading pageHeading="Profile" />
 
@@ -23,8 +23,7 @@
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-800">Email
                         <span class="text-pink-600 text-xs">*</span></label>
                     <div class="mt-2">
-                        <input type="email" id="email" wire:model="email"
-                            class="input__field">
+                        <input type="email" id="email" wire:model="email" class="input__field">
                     </div>
                     @error('email')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -33,8 +32,7 @@
                 <div class="mt-4">
                     <label for="username" class="block text-sm font-medium leading-6 text-gray-800">Username</label>
                     <div class="mt-2">
-                        <input type="text" id="username" wire:model="username"
-                            class="input__field">
+                        <input type="text" id="username" wire:model="username" class="input__field">
                     </div>
                     @error('email')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -43,8 +41,7 @@
                 <div class="mt-4">
                     <label for="website" class="block text-sm font-medium leading-6 text-gray-800">Website</label>
                     <div class="mt-2">
-                        <input type="url" id="website" wire:model="website"
-                            class="input__field">
+                        <input type="url" id="website" wire:model="website" class="input__field">
                     </div>
                     @error('website')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -53,8 +50,7 @@
                 <div class="mt-4">
                     <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title</label>
                     <div class="mt-2">
-                        <input type="text" id="title" wire:model="title"
-                            class="input__field">
+                        <input type="text" id="title" wire:model="title" class="input__field">
                     </div>
                     @error('title')
                     <x-validation-message> {{ $message }} </x-validation-message>
@@ -70,12 +66,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="py-4">
-                <button type="button" wire:click.prevent="save"
-                    class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <x-button action="save">
                     Save changes
-                </button>
+                </x-button>
             </div>
 
         </form>

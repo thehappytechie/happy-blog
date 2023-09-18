@@ -1,5 +1,5 @@
 <div>
-    <div class="py-4 mt-2">
+    <div class="py-4 mb-8">
 
         <x-page-heading pageHeading="Settings" />
 

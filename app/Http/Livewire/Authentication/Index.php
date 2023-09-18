@@ -14,7 +14,6 @@ class Index extends Component
 
     public function mount(User $user)
     {
-
         $this->user = $user;
     }
     public function render()

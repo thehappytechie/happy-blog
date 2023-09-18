@@ -24,7 +24,7 @@ class AddRoleModal extends ModalComponent
             ],
         );
         Role::create($validatedData);
-        $this->emit('pg:eventRefresh-default');
+        $this->emit('refresh');
         $this->closeModal();
     }
 

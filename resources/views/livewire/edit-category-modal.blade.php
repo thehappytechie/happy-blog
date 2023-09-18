@@ -1,6 +1,6 @@
 <div>
     <div class="bg-white px-5 py-5">
-        <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-600 mb-2">Add Permission
+        <h2 class="text-2xl sm:text-2xl font-semibold font-display text-gray-600 mb-2">Edit Category
         </h2>
         <form class="border-t border-gray-100" method="POST">
             <div class="grid gap-5 mt-4 mb-2">

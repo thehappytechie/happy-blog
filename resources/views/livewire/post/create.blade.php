@@ -8,9 +8,9 @@
 @endpush
 
 <div class="md:w-9/12 w-full">
-    <div class="py-4 mt-2">
+    <div class="py-4 mb-8">
         <a href="{{ route('post.index') }}"
-            class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-indigo-800 hover:text-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            class="pb-4 inline-flex items-center gap-x-1.5 text-sm font-semibold text-orange-600 hover:text-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
             <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -25,7 +25,7 @@
             <div class="my-10">
                 <div class="relative inline-block w-10 mr-2 align-middle select-none">
                     <input type="checkbox" id="toggle" wire:model="is_draft"
-                        class="checked:bg-blue-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-300 border-4 appearance-none cursor-pointer"><label
+                        class="checked:bg-orange-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-100 border-4 appearance-none cursor-pointer"><label
                         for="toggle" class="block h-6 overflow-hidden bg-gray-300 rounded-full cursor-pointer"></label>
                 </div>
                 <span class="text-gray-500">Save as draft</span>
@@ -59,7 +59,7 @@
                     </x-select>
                     <div class="mt-2">
                         <button type="button" wire:click="$emit('openModal', 'add-category-modal')"
-                            class="rounded-full bg-indigo-600 p-1 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="rounded-full bg-orange-600 p-1 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                             <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path
                                     d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
@@ -101,11 +101,10 @@
 
             <div class="py-4">
                 <x-button action="save"
-                    class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    class="rounded-md bg-orange-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                     {{ $is_draft ? 'Publish as draft' : 'Save and Publish' }}
                 </x-button>
             </div>
-
         </form>
 
     </div>

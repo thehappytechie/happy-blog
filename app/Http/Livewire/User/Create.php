@@ -16,6 +16,8 @@ class Create extends Component
     public $role = "";
     public $selectedPermissions = [];
 
+    protected $listeners = ['refresh' => '$refresh'];
+
     public function save()
     {
         $validatedData = $this->validate(
