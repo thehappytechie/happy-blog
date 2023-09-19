@@ -20,15 +20,17 @@
         <x-page-heading pageHeading="Create Post" />
 
         <form>
-            <p class="text-xs text-gray-500"><span class="text-red-600 text-xs">*</span> indicates
+            <p class="text-xs text-gray-500 mt-2"><span class="text-red-600 text-xs">*</span> indicates
                 required field</p>
-            <div class="my-10">
+            <div class="border-t border-gray-200 mt-4">
+            </div>
+            <div class="my-6">
                 <div class="relative inline-block w-10 mr-2 align-middle select-none">
                     <input type="checkbox" id="toggle" wire:model="is_draft"
                         class="checked:bg-orange-600 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-100 border-4 appearance-none cursor-pointer"><label
                         for="toggle" class="block h-6 overflow-hidden bg-gray-300 rounded-full cursor-pointer"></label>
                 </div>
-                <span class="text-gray-500">Save as draft</span>
+                <span class="text-gray-500">Post is a draft</span>
             </div>
             <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-6">
                 <div>

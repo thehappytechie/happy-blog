@@ -22,6 +22,8 @@
         </div>
 
         <div class="md:w-6/12">
+            <div class="border-t border-gray-200 mt-5">
+            </div>
             <div class="mt-6">
                 <label for="current_password" class="block text-sm font-medium leading-6 text-gray-800">Current password</label>
                 <div class="mt-2">

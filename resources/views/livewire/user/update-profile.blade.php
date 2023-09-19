@@ -5,9 +5,10 @@
 
         <form>
             <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be careful
-                what
-                you share.</p>
+                what you share.</p>
             <div class="md:w-6/12">
+                <div class="border-t border-gray-200 mt-4">
+                </div>
                 <div class="mt-4">
                     <label for="name" class="block text-sm font-medium leading-6 text-gray-800">Full name
                         <span class="text-pink-600 text-xs">*</span></label>
@@ -29,14 +30,25 @@
                     <x-validation-message> {{ $message }} </x-validation-message>
                     @enderror
                 </div>
-                <div class="mt-4">
-                    <label for="username" class="block text-sm font-medium leading-6 text-gray-800">Username</label>
-                    <div class="mt-2">
-                        <input type="text" id="username" wire:model="username" class="input__field">
+                <div class="grid gap-5 grid-cols-2 md:grid-cols-2 mt-4">
+                    <div>
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-800">Username</label>
+                        <div class="mt-2">
+                            <input type="text" id="username" wire:model="username" class="input__field">
+                        </div>
+                        @error('email')
+                        <x-validation-message> {{ $message }} </x-validation-message>
+                        @enderror
                     </div>
-                    @error('email')
-                    <x-validation-message> {{ $message }} </x-validation-message>
-                    @enderror
+                    <div>
+                        <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title</label>
+                        <div class="mt-2">
+                            <input type="text" id="title" wire:model="title" class="input__field">
+                        </div>
+                        @error('title')
+                        <x-validation-message> {{ $message }} </x-validation-message>
+                        @enderror
+                    </div>
                 </div>
                 <div class="mt-4">
                     <label for="website" class="block text-sm font-medium leading-6 text-gray-800">Website</label>
@@ -44,15 +56,6 @@
                         <input type="url" id="website" wire:model="website" class="input__field">
                     </div>
                     @error('website')
-                    <x-validation-message> {{ $message }} </x-validation-message>
-                    @enderror
-                </div>
-                <div class="mt-4">
-                    <label for="title" class="block text-sm font-medium leading-6 text-gray-800">Title</label>
-                    <div class="mt-2">
-                        <input type="text" id="title" wire:model="title" class="input__field">
-                    </div>
-                    @error('title')
                     <x-validation-message> {{ $message }} </x-validation-message>
                     @enderror
                 </div>

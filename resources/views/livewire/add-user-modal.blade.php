@@ -13,8 +13,8 @@
                         </svg>
                     </div>
                     <div class="ml-3 flex-1 md:flex md:justify-between">
-                        <p class="text-sm text-orange-700">An email with the account credentials is sent
-                            to the user to change their password on first time login.</p>
+                        <p class="text-sm text-orange-700">Email with credentials is sent
+                            to the user and they must change their password on first time login.</p>
                     </div>
                 </div>
             </div>
