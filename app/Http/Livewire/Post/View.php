@@ -16,7 +16,7 @@ class View extends Component
 
     public function render()
     {
-        return view('livewire.post.view', ['post' => $this->post])
+        return view('livewire.post.view')
         ->layout('layouts.public');
     }
 }

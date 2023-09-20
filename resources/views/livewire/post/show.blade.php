@@ -66,7 +66,7 @@
         }
     </style>
 
-    <div class="py-4 mt-2">
+    <div class="py-4 mb-8">
         <button type="button"
             class="inline-flex items-center gap-x-1.5 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-500">
             <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -92,7 +92,8 @@
                     </svg>
                     <a href="http://" class="uppercase"> {{ ucfirst($post->category->name) }}</a>
                 </span></p>
-                <h2 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl"> {{ $post->title }}</h2>
+                <h2 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading"> {{
+                    $post->title }}</h2>
             </div>
             <div class="relative aspect-[16/9] mt-8 max-w-2xl m-auto">
                 <img src="{{ url('storage/'.$post->feature_image.'') }}" alt=""
@@ -118,16 +119,21 @@
             <div class="text-gray-800 contents">
                 @markdown($post->contents)
             </div>
-            <livewire:like :post="$post" />
+            <div class="flex items-center gap-x-4 text-xs">
+                <livewire:like :post="$post" />
+                <x-post-view-count :post="$post" />
+            </div>
+            <div class="border-t border-gray-200 mt-4">
+            </div>
         </div>
 
-        <div class="w-11/12 py-5 px-5">
+        <div class="md:w-9/12 w-full py-5 px-5 shadow-lg border-b rounded-sm border-orange-500">
             <div class="relative mb-4">
                 <div class="absolute inset-0 flex items-center" aria-hidden="true">
                     <div class="w-full border-t border-gray-300"></div>
                 </div>
-                <div class="relative flex justify-center">
-                    <span class="bg-white px-3 text-base font-semibold leading-6 text-gray-900">Comments</span>
+                <div class="relative flex justify-start">
+                    <span class="bg-white pr-3 text-base font-semibold leading-6 text-gray-900">Comments</span>
                 </div>
             </div>
             <ul role="list" class="divide-y divide-gray-100">
@@ -155,8 +161,8 @@
                         alt="">
                     <div class="flex-auto">
                         <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-800">Michael Foster</p>
-                            <p class="flex-none text-xs text-gray-600">
+                            <p class="text-sm font-semibold leading-6 text-gray-700">Michael Foster</p>
+                            <p class="flex-none text-xs text-gray-500">
                                 <time datetime="2023-03-03T14:02Z">2d ago</time>
                             </p>
                         </div>
@@ -167,27 +173,6 @@
                             unde et molestiae autem ad. Architecto dolor ex accusantium maxime cumque laudantium itaque
                             aut
                             perferendis.</p>
-                    </div>
-                </li>
-                <li class="flex gap-x-4 py-5">
-                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="">
-                    <div class="flex-auto">
-                        <div class="flex items-baseline justify-between gap-x-4">
-                            <p class="text-sm font-semibold leading-6 text-gray-800">Dries Vincent</p>
-                            <p class="flex-none text-xs text-gray-600">
-                                <time datetime="2023-03-03T13:23Z">2d ago</time>
-                            </p>
-                        </div>
-                        <p class="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">Quia animi harum in quis quidem
-                            sint.
-                            Ipsum
-                            dolorem molestias veritatis quis eveniet commodi assumenda temporibus. Dicta ut modi alias
-                            nisi.
-                            Veniam quia velit et ut. Id quas ducimus reprehenderit veniam fugit amet fugiat ipsum eius.
-                            Voluptas
-                            nobis earum in in vel corporis nisi.</p>
                     </div>
                 </li>
             </ul>

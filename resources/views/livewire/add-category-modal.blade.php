@@ -29,9 +29,9 @@
     </div>
     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
         <button wire:click.prevent="save"
-            class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 ml-4 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">Save</button>
+            class="inline-flex items-center gap-x-1.5 bg-orange-600 ml-4 px-3 py-1.5 text-sm bg-gradient-to-b text-orange-600 font-semibold from-slate-50 to-orange-100 rounded shadow-orange-500 shadow-sm border-b-4 hover border-orange-200 hover:shadow-sm transition-all duration-500">Save</button>
         <button wire:click.prevent="$emit('closeModal')"
-            class="inline-flex items-center rounded-md bg-white px-5 py-2 text-xs font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Close</button>
+            class="inline-flex items-center rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Close</button>
     </div>
 </div>
 

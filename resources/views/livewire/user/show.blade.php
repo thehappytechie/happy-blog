@@ -157,8 +157,7 @@
                                     class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
                                     role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button"
                                     tabindex="-1">
-                                    <!-- Active: "bg-gray-50", Not Active: "" -->
-                                    <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"
+                                    <a href="{{ route('post.edit', $post->slug) }}" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"
                                         tabindex="-1" id="options-menu-0-item-0">Edit<span
                                             class="sr-only">Post</span></a>
                                     <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem"

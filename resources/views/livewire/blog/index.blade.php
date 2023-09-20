@@ -25,7 +25,7 @@
                             <div class="group relative max-w-xl">
                                 <h3
                                     class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                    <a href="{{ route('post.show',$post->id) }}" wire:click="incrementViewCount">
+                                    <a href="{{ route('post.show',$post->slug) }}" wire:click="incrementViewCount">
                                         <span class="absolute inset-0"></span>
                                         {{ $post->title }}
                                     </a>

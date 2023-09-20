@@ -104,9 +104,8 @@
                 </div>
             </div>
             <div class="py-4">
-                <x-button action="save"
-                    class="rounded-md bg-indigo-600 mt-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Create
+                <x-button action="save">
+                    Save
                 </x-button>
             </div>
         </form>
