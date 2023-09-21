@@ -121,7 +121,17 @@
             </div>
             <div class="flex items-center gap-x-4 text-xs">
                 <livewire:like :post="$post" />
-                <x-post-view-count :post="$post" />
+                <div>
+                    <p class="inline-flex items-center text-sm mt-4">
+                        <svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
+                            class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="ml-1">{{ $post->views }} views</span>
+                    </p>
+                </div>
             </div>
             <div class="border-t border-gray-200 mt-4">
             </div>
@@ -178,6 +188,10 @@
             </ul>
         </div>
     </div>
+
+    <script src="https://utteranc.es/client.js" repo="thehappytechie/happy-blog" issue-term="pathname"
+        label="happy-blog-comments" theme="github-light" crossorigin="anonymous" async>
+    </script>
 
 </div>
 

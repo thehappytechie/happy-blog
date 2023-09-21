@@ -18,24 +18,22 @@
                             <div class="flex items-center gap-x-4 text-xs">
                                 <time datetime="{{ $post->datePostFormat() }}" class="text-gray-500">{{
                                     $post->datePostFormat() }}</time>
-                                <a href="#"
+                                <a href="{{ route('category.show',$post->category->name) }}"
                                     class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{
-                                    $post->category->name }}</a>
+                                    ucfirst($post->category->name) }}</a>
                             </div>
+
                             <div class="group relative max-w-xl">
                                 <h3
                                     class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                    <a href="{{ route('post.show',$post->slug) }}" wire:click="incrementViewCount">
+                                    <a href="{{ route('post.show',$post->slug) }}"
+                                        wire:click.defer="incrementViewCount('{{ $post->id }}')">
                                         <span class="absolute inset-0"></span>
                                         {{ $post->title }}
                                     </a>
                                 </h3>
                                 <p class="mt-5 text-sm leading-6 text-gray-600">
-                                    {!! $post->excerpt() !!}</p>
-                            </div>
-                            <div class="flex items-center gap-x-4 text-xs">
-                                <livewire:like :post="$post" />
-                                <x-post-view-count :post="$post" />
+                                    @markdown ($post->excerpt())</p>
                             </div>
                             <div class="mt-6 flex border-t border-gray-900/5 pt-6">
                                 <div class="relative flex items-center gap-x-4">

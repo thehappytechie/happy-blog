@@ -99,6 +99,8 @@
                         class="text-pink-600 text-xs">*</span></label>
                 <input wire:model="feature_image" accept="image/png, image/jpeg" type="file" x-ref="input">
             </div>
+
+            @role('superuser')
             <div class="grid gap-5 grid-cols-2 md:grid-cols-3 mt-8">
                 <x-select name="user_id" label="Author">
                     @foreach ($users as $user)
@@ -106,6 +108,8 @@
                     @endforeach
                 </x-select>
             </div>
+            @endrole
+
             <div class="mt-8" wire:ignore>
                 <x-simple-mde.text-editor></x-simple-mde.text-editor>
             </div>
@@ -119,7 +123,6 @@
                 </button>
                 @endif
             </div>
-
         </form>
 
     </div>

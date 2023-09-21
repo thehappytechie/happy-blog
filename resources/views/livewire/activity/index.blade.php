@@ -9,13 +9,10 @@
             </svg>Back to settings
         </a>
 
+        <x-page-heading pageHeading="Activity Log" />
+        <p class="mt-2 text-sm text-gray-700">A list of all the users and their site wide activity</p>
+
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="sm:flex sm:items-center">
-                <div class="sm:flex-auto">
-                    <x-page-heading pageHeading="Activity Log" />
-                    <p class="mt-2 text-sm text-gray-700">A list of all the users and their site wide activity</p>
-                </div>
-            </div>
             <div class="mt-8 flow-root">
                 <div class="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle">

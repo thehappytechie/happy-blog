@@ -15,9 +15,12 @@ class Index extends Component
         $this->posts = Post::all();
     }
 
-    public function incrementViewCount()
+    public function incrementViewCount($postId)
     {
-        $this->post->increment('views');
+        $post = Post::find($postId);
+        if ($post) {
+            $post->increment('views');
+        }
     }
 
     public function render()
