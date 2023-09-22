@@ -23,7 +23,7 @@
                         </div>
                         <div class="group relative max-w-xl">
                             <h3
-                                class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                class="mt-3 text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                                 <a href="{{ route('post.view', $post->slug) }}">
                                     <span class="absolute inset-0"></span>
                                     {{ $post->title }}
@@ -35,8 +35,8 @@
                             <div class="relative flex items-center gap-x-4">
                                 <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($post->user->name) }}"
                                     alt="" class="h-10 w-10 rounded-full bg-gray-50">
-                                <div class="text-sm leading-6">
-                                    <p class="font-semibold text-gray-900">
+                                <div class="text-md leading-6">
+                                    <p class="font-semibold text-orange-600 underline">
                                         <a href="{{ route('post.author',$post->user->id) }}">
                                             <span class="absolute inset-0"></span>
                                             {{ $post->user->name }}

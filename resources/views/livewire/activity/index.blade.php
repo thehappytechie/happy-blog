@@ -41,7 +41,7 @@
                                         {{ $audit->user->name ?? '' }} <br>
                                         <span
                                             class="mt-1 inline-flex items-center rounded-md bg-blue-50 px-1.5 py-0.5 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                                            {{ $audit->event}}
+                                            {{ ucfirst($audit->event) }}
                                         </span>
                                     </td>
                                     <td

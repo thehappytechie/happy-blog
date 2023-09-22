@@ -20,12 +20,11 @@ Route::controller(PageController::class)->group(function () {
         ->name('home');
 });
 
-Route::get('posts', \App\Http\Livewire\Post\Articles::class)->name('post.articles');
+Route::get('posts/all', \App\Http\Livewire\Post\Articles::class)->name('post.articles');
 Route::get('about', \App\Http\Livewire\Post\About::class)->name('post.about');
 Route::get('category/{category}', \App\Http\Livewire\Category\Posts::class)->name('category.show');
 Route::get('post/{post}', \App\Http\Livewire\Post\View::class)->name('post.view');
 Route::get('author/{user}', \App\Http\Livewire\Post\Author::class)->name('post.author');
-
 
 Route::middleware(['auth', 'verified', 'force.password.change', 'disable.login'])->group(function () {
 

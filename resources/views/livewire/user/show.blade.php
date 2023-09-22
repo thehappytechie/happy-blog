@@ -21,7 +21,7 @@
 
                     <a :class="{ 'border-orange-500 text-orange-600': tab === 'second' }"
                         class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-md text-gray-900" href="#"
-                        @click.prevent="tab = 'second'"> Posts
+                        @click.prevent="tab = 'second'"> Posts created
                         <span
                             class="bg-gray-100 text-gray-900 ml-3 hidden rounded-full py-0.5 px-2.5 text-xs font-medium md:inline-block">{{
                             $posts->count() }}</span>
@@ -121,7 +121,7 @@
             <div x-show="tab === 'second'" class="mt-6">
                 <p>
                 <ul role="list" class="divide-y divide-gray-100">
-                    @foreach ($posts as $post )
+                    @forelse ($posts as $post )
                     <li class="flex items-center justify-between gap-x-6 py-5">
                         <div class="min-w-0">
                             <div class="flex items-start gap-x-3">
@@ -167,7 +167,9 @@
                             </div>
                         </div>
                     </li>
-                    @endforeach
+                    @empty
+                    <p class="text-center text-gray-700">User has no posts created.</p>
+                    @endforelse
                 </ul>
                 </p>
             </div>

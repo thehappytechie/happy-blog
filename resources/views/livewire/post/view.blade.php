@@ -60,11 +60,15 @@
                 border-radius: .25rem;
                 word-break: break-word;
             }
+
+            .timeline-comment {
+                font-family: 'Nunito Sans', sans-serif !important;
+            }
         </style>
 
         <div class="py-4">
             <button type="button"
-                class="cursor-pointer inline-flex items-center gap-x-1.5 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-500">
+                class="cursor-pointer inline-flex items-center gap-x-1.5 py-1.5 text-sm font-medium text-orange-600 hover:text-orange-500">
                 <svg class="-ml-0.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -88,7 +92,8 @@
                     </svg>
                     <a href="http://" class="uppercase"> {{ ucfirst($post->category->name) }}</a>
                 </span></p>
-                <h2 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl"> {{ $post->title }}
+                <h2 class="my-14 font-heading text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl"> {{
+                    $post->title }}
                 </h2>
             </div>
             <div class="relative aspect-[16/9] mt-8 max-w-2xl m-auto">
@@ -97,7 +102,7 @@
                 <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-800/10"></div>
             </div>
             <div class="py-10 max-w-2xl m-auto">
-                <a href="#" class="group block flex-shrink-0">
+                <a href="{{ route('post.author', $post->user->id) }}" class="group block flex-shrink-0">
                     <div class="flex items-center">
                         <div>
                             <img class="inline-block h-9 w-9 rounded-full"
@@ -107,7 +112,6 @@
                         <div class="ml-3">
                             <p class="text-sm font-semibold text-gray-800 group-hover:text-gray-900">
                                 {{ $post->user->name }}</p>
-                            <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
                         </div>
                     </div>
                 </a>
@@ -115,7 +119,10 @@
             <div class="text-gray-800 contents">
                 <div class="max-w-2xl m-auto">
                     @markdown($post->contents)
-                    <livewire:like :post="$post" />
+                    <div class="flex items-center gap-x-4 text-xs py-4">
+                        <livewire:like :post="$post" />
+                        <x-post-view-count :post="$post" />
+                    </div>
                 </div>
             </div>
 
@@ -124,77 +131,12 @@
                     <div class="absolute inset-0 flex items-center" aria-hidden="true">
                         <div class="w-full border-t border-gray-300"></div>
                     </div>
-                    <div class="relative flex justify-center">
-                        <span class="bg-white px-3 text-base font-semibold leading-6 text-gray-900">Comments</span>
-                    </div>
                 </div>
                 <ul role="list" class="divide-y divide-gray-100">
                     <li class="flex gap-x-4 py-5">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="">
-                        <div class="flex-auto">
-                            <div class="flex items-baseline justify-between gap-x-4">
-                                <p class="text-sm font-semibold leading-6 text-gray-800">Leslie Alexander</p>
-                                <p class="flex-none text-xs text-gray-600">
-                                    <time datetime="2023-03-04T15:54Z">1d ago</time>
-                                </p>
-                            </div>
-                            <p class="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">Explicabo nihil laborum.
-                                Saepe
-                                facilis
-                                consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo quia. Culpa vitae
-                                placeat
-                                vitae.
-                                Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.</p>
-                        </div>
-                    </li>
-                    <li class="flex gap-x-4 py-5">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                            src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="">
-                        <div class="flex-auto">
-                            <div class="flex items-baseline justify-between gap-x-4">
-                                <p class="text-sm font-semibold leading-6 text-gray-800">Michael Foster</p>
-                                <p class="flex-none text-xs text-gray-600">
-                                    <time datetime="2023-03-03T14:02Z">2d ago</time>
-                                </p>
-                            </div>
-                            <p class="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">Laudantium quidem non et
-                                saepe vel
-                                sequi
-                                accusamus consequatur et. Saepe inventore veniam incidunt cumque et laborum nemo
-                                blanditiis
-                                rerum. A
-                                unde et molestiae autem ad. Architecto dolor ex accusantium maxime cumque laudantium
-                                itaque
-                                aut
-                                perferendis.</p>
-                        </div>
-                    </li>
-                    <li class="flex gap-x-4 py-5">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="">
-                        <div class="flex-auto">
-                            <div class="flex items-baseline justify-between gap-x-4">
-                                <p class="text-sm font-semibold leading-6 text-gray-800">Dries Vincent</p>
-                                <p class="flex-none text-xs text-gray-600">
-                                    <time datetime="2023-03-03T13:23Z">2d ago</time>
-                                </p>
-                            </div>
-                            <p class="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">Quia animi harum in quis
-                                quidem
-                                sint.
-                                Ipsum
-                                dolorem molestias veritatis quis eveniet commodi assumenda temporibus. Dicta ut modi
-                                alias
-                                nisi.
-                                Veniam quia velit et ut. Id quas ducimus reprehenderit veniam fugit amet fugiat
-                                ipsum eius.
-                                Voluptas
-                                nobis earum in in vel corporis nisi.</p>
-                        </div>
+                        <script src="https://utteranc.es/client.js" repo="thehappytechie/happy-blog" issue-term="pathname"
+                        label="happy-blog-comments" theme="github-light" crossorigin="anonymous" async>
+                    </script>
                     </li>
                 </ul>
             </div>

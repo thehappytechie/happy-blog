@@ -28,12 +28,12 @@ class Post extends Model implements Auditable
 
     public function excerpt()
     {
-        return Str::words($this->contents, 50);
+        return Str::words($this->contents, 40);
     }
 
      public function shortExcerpt()
     {
-        return Str::words($this->contents, 25);
+        return Str::words($this->contents, 20);
     }
 
     public function datePostPublished()

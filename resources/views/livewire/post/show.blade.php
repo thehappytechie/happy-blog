@@ -92,7 +92,7 @@
                     </svg>
                     <a href="http://" class="uppercase"> {{ ucfirst($post->category->name) }}</a>
                 </span></p>
-                <h2 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading"> {{
+                <h2 class="my-14 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading"> {{
                     $post->title }}</h2>
             </div>
             <div class="relative aspect-[16/9] mt-8 max-w-2xl m-auto">

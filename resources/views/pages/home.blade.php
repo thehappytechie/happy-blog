@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Lora:wght@600&display=swap"
         rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
@@ -36,11 +35,12 @@
             <div class="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-48 lg:text-left">
                 <div class="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
                     <div class="hidden sm:mb-5 sm:flex sm:justify-center lg:justify-start">
-                        @if ($popularFeaturedPost != 0)
+                        @if (!empty($popularFeaturedPost))
                         <a href="{{ route('post.view',$popularFeaturedPost->slug) }}"
                             class="flex items-center rounded-full bg-black p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base">
                             <span
-                                class="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Latest Post</span>
+                                class="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Latest
+                                Post</span>
                             <span class="ml-4 text-sm">{{ $popularFeaturedPost->title }}</span>
                             <svg class="ml-2 h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
@@ -62,7 +62,8 @@
                     <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div class="rounded-md shadow">
                             <a href="{{ route('post.articles') }}"
-                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 md:px-10 md:py-4 md:text-lg">All Posts</a>
+                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 md:px-10 md:py-4 md:text-lg">All
+                                Posts</a>
                         </div>
                         <div class="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
                             <a href="{{ route('post.about') }}"
@@ -116,7 +117,7 @@
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="{{ route('post.author', $post->user->id) }}" class="hover:underline">{{
+                                        <a href="{{ route('post.author', $post->user->id) }}" class="text-orange-600 underline">{{
                                             ucfirst($post->user->name) }}</a>
                                     </p>
                                     <div class="flex space-x-1 text-sm text-gray-500">
@@ -143,7 +144,7 @@
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Browse all the most read posts</p>
             </div>
             <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
-                @if ($popularFeaturedPost != 0)
+                @if (!empty($popularFeaturedPost))
                 <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
                     <time datetime="{{ $popularFeaturedPost->created_at->toFormattedDateString() }}"
                         class="block text-sm leading-6 text-gray-600">
@@ -168,8 +169,9 @@
                             <a href="{{ route('post.author', $popularFeaturedPost->user->id) }}"
                                 class="flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
                                 <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($popularFeaturedPost->user->name) }}"
-                                    alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                {{ $popularFeaturedPost->user->name }}
+                                    alt="author avatar" class="h-6 w-6 flex-none rounded-full bg-gray-50">
+
+                                <span class="text-orange-600 underline"> {{ $popularFeaturedPost->user->name }}</span>
                             </a>
                         </div>
                     </div>
@@ -185,7 +187,7 @@
                                 <time datetime="{{ $featuredPost->created_at->toFormattedDateString() }}"
                                     class="block text-sm leading-6 text-gray-600">{{
                                     $featuredPost->created_at->toFormattedDateString() }}</time>
-                                <h2 class="mt-2 text-lg font-semibold text-gray-900 group-hover:text-gray-600">
+                                <h2 class="mt-2 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
                                     <a href="{{ route('post.view',$featuredPost->slug) }}">
                                         <span class="absolute inset-0"></span>
                                         {{ $featuredPost->title }}
@@ -197,9 +199,6 @@
                             <div class="mt-4 flex">
                                 <a href="{{ route('post.author', $featuredPost->user->id) }}"
                                     class="relative flex gap-x-2.5 text-sm font-semibold leading-6 text-gray-900">
-                                    <img src="https://api.dicebear.com/6.x/adventurer-neutral/svg?seed={{ ucfirst($featuredPost->user->name) }}"
-                                        alt="" class="h-6 w-6 flex-none rounded-full bg-gray-50">
-                                    {{ $featuredPost->user->name }}
                                 </a>
                             </div>
                         </article>

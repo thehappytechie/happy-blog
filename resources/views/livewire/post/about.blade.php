@@ -5,8 +5,8 @@
             <div class="relative mb-8 md:mb-2 md:px-6">
                 <div class="max-w-prose text-base lg:max-w-none">
                     <h2 class="font-semibold leading-6 text-orange-600">About</h2>
-                    <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">See your ideas
-                        come to life on the page and make a difference in the world.</p>
+                    <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">See your ideas and thoughts
+                        come to life</p>
                 </div>
             </div>
             <div class="relative">
@@ -34,11 +34,6 @@
                                 development tips and tutorials are designed to support your journey. From HTML and CSS
                                 to JavaScript and beyond, we offer step-by-step guidance and best practices to enhance
                                 your coding prowess.</p>
-                            <br>
-                            <p>We pride ourselves on delivering accurate, up-to-date, and reliable information.
-                                Technology never
-                                stops evolving, and neither do we. We are committed to staying at the forefront of the
-                                industry and sharing our knowledge with you.</p>
                             <br>
                             <p class="font-medium">Whether you're here to learn, explore, or share your insights, we're
                                 excited to have you
