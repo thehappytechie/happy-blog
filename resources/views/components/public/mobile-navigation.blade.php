@@ -29,15 +29,5 @@
                 </nav>
             </div>
         </div>
-        <div class="space-y-6 px-5 py-6">
-            <div class="grid grid-cols-2 gap-x-8 gap-y-4">
-                <a href="{{ route('post.about') }}"
-                    class="text-base font-medium text-gray-900 hover:text-gray-700">About</a>
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Contribute</a>
-                <a href="mailto:hello@thehappytechie.com"
-                    class="text-base font-medium text-gray-900 hover:text-gray-700">Contact</a>
-                <a href="{{ route('login') }}" target="_blank" class="text-base font-medium text-gray-900 hover:text-gray-700">Login</a>
-            </div>
-        </div>
     </div>
 </div>
