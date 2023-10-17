@@ -14,6 +14,12 @@ class View extends Component
         $this->post = $post;
     }
 
+    public function incrementViewCount()
+    {
+        $this->post->increment('views');
+        $this->post->refresh();
+    }
+
     public function render()
     {
         return view('livewire.post.view')

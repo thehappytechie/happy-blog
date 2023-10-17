@@ -24,11 +24,8 @@
             </div>
             <div class="mt-6">
                 <nav class="grid gap-y-4">
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Technology</a>
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500">Laravel</a>
-                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Tips</a>
-                    <a href="{{ route('post.articles') }}" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">All
-                        Articles</a>
+                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">Home</a>
+                    <a href="#" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500">Blog</a>
                 </nav>
             </div>
         </div>
@@ -40,10 +37,6 @@
                 <a href="mailto:hello@thehappytechie.com"
                     class="text-base font-medium text-gray-900 hover:text-gray-700">Contact</a>
                 <a href="{{ route('login') }}" target="_blank" class="text-base font-medium text-gray-900 hover:text-gray-700">Login</a>
-            </div>
-            <div>
-                <a href="#"
-                    class="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700">Join</a>
             </div>
         </div>
     </div>

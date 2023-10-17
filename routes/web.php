@@ -20,7 +20,7 @@ Route::controller(PageController::class)->group(function () {
         ->name('home');
 });
 
-Route::get('posts/all', \App\Http\Livewire\Post\Articles::class)->name('post.articles');
+Route::get('home', \App\Http\Livewire\Home::class)->name('home');
 Route::get('about', \App\Http\Livewire\Post\About::class)->name('post.about');
 Route::get('category/{category}', \App\Http\Livewire\Category\Posts::class)->name('category.show');
 Route::get('post/{post}', \App\Http\Livewire\Post\View::class)->name('post.view');

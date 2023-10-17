@@ -8,9 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Lora:wght@600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/tom-select.css') }}" />
-
-    @stack('filepondCss')
 
     @stack('simpleMDECss')
 
@@ -24,42 +21,51 @@
 
     <x-alert></x-alert>
 
+    <script>
+        window.axeptioSettings = {
+            clientId: "652e86bb62524366709c9680",
+        };
+
+        (function(d, s) {
+            var t = d.getElementsByTagName(s)[0],
+                e = d.createElement(s);
+            e.async = true;
+            e.src = "//static.axept.io/sdk.js";
+            t.parentNode.insertBefore(e, t);
+        })(document, "script");
+    </script>
+
     <style>
         [x-cloak] {
             display: none !important;
         }
     </style>
 
-    <div class="relative bg-white shadow">
-        <div class="mx-auto max-w-7xl px-6">
-            <x-public.desktop-navigation></x-public.desktop-navigation>
+    <div x-data="{ open: false }" @keydown.window.escape="open = false">
+        <div class="relative bg-white shadow">
+            <div class="mx-auto max-w-7xl px-6">
+                <x-public.desktop-navigation></x-public.desktop-navigation>
+            </div>
+
+            <x-public.mobile-navigation></x-public.mobile-navigation>
+
         </div>
 
-        <x-public.mobile-navigation />
+        <div class="bg-white py-20 sm:py-20">
+            {{ $slot }}
+        </div>
+
+        <x-public.footer />
 
     </div>
-
-    <main class="lg:relative">
-        {{ $slot }}
-    </main>
-
-    <x-public.footer />
 
     @livewireScripts
 
     @stack('notyf')
 
-    @livewire('livewire-ui-modal')
-
-    @stack('powergridJs')
-
     @stack('simpleMDE')
 
-    @stack('filepondJs')
-
     @stack('highlightJs')
-
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 

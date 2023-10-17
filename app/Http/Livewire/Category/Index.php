@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Category;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class Index extends Component

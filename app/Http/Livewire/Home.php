@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Livewire\Category;
+namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
-use App\Models\Category;
 
-class Posts extends Component
+class Home extends Component
 {
-    public $post, $posts, $category;
+    public $post, $posts;
 
-    public function mount(Post $post,Category $category)
+    public function mount(Post $post)
     {
         $this->post = $post;
         $this->posts = Post::all();
-        $this->category = $category;
-
     }
 
     public function incrementViewCount($postId)
@@ -28,7 +25,7 @@ class Posts extends Component
 
     public function render()
     {
-        return view('livewire.category.posts')
+        return view('livewire.home')
         ->layout('layouts.public');
     }
 }
